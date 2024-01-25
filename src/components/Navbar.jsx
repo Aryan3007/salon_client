@@ -11,8 +11,8 @@ const Navbar = () => {
               className="flex items-center justify-center gap-4 text-teal-600"
               to="/"
             >
-              <img className="h-14" src="logo.png" alt="" />
-              <h1 className="text-3xl text-black font-bold">Elegance</h1>
+              <img className="h-12" src="logo.png" alt="" />
+              <h1 className="text-3xl text-black font-semibold">Nourish_nest</h1>
             </Link>
           </div>
 
