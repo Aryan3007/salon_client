@@ -59,7 +59,7 @@ const Homepage = () => {
 
   const getAllReviews = async () => {
     try {
-      const res = await axios.get("http://localhost:3001/review/getreview");
+      const res = await axios.get("https://salon-server-jupe.onrender.com/review/getreview");
       serReviews(res.data.reviews);
     } catch (error) {
       console.log(error);
@@ -67,7 +67,7 @@ const Homepage = () => {
   };  
   const postReviews = async () => {
     try {
-      const res = await axios.post("http://localhost:3001/review/postreview",{message, name});
+      const res = await axios.post("https://salon-server-jupe.onrender.com/review/postreview",{message, name});
       serReviews(res.data.reviews);
     } catch (error) {
       console.log(error);
