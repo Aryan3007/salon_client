@@ -4,12 +4,12 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
 import { useEffect } from "react";
-import Countdown from "react-countdown";
+// import Countdown from "react-countdown";
 
 // Random component
-const Completionist = () => (
-  <span className="text-sm">Oops!! You are late Offer Ended</span>
-);
+// const Completionist = () => (
+//   <span className="text-sm">Oops!! You are late Offer Ended</span>
+// );
 
 const Pricing = () => {
   const [services, setServices] = useState();
@@ -106,7 +106,7 @@ const Pricing = () => {
         </div>
       </div>
 
-      <div className="h-full w-full flex justify-center items-center">
+      {/* <div className="h-full w-full flex justify-center items-center">
         <div className="group mb-24 flex flex-col justify-start items-start gap-2 lg:w-1/2 w-80 h-56 duration-500 relative rounded-xl p-4 bg-zinc-900 hover:-translate-y-2 hover:shadow-xl shadow-purple-400">
           <div
             className="absolute p-4 duration-700 shadow-md group-hover:-translate-y-4 group-hover:-translate-x-4 -bottom-10 -right-10 w-1/2 h-1/2 rounded-lg bg-green-700"
@@ -136,7 +136,7 @@ const Pricing = () => {
             Explore
           </button>
         </div>
-      </div>
+      </div> */}
     </>
   );
 };
