@@ -15,7 +15,7 @@ const Pricing = () => {
   const [services, setServices] = useState();
   const getAllServices = async () => {
     try {
-      const res = await axios.get("http://localhost:3001/services/getservices");
+      const res = await axios.get("https://salon-server-jupe.onrender.com/services/getservices");
       setServices(res.data.allServices);
     } catch (error) {
       console.log(error);
