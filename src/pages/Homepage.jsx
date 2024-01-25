@@ -130,7 +130,7 @@ const Homepage = () => {
             minima aliquam fuga blanditiis. Architecto.
           </p>
         </div>
-        <div className="h-96 lg:w-[30%]  md:w-1/3 w-80 border-x-2 lg:border-[#537f3c] flex flex-col justify-center items-center gap-4 lg:px-12 text-center">
+        <div className="h-96 lg:w-[30%]  md:w-1/3 w-80 lg:border-x-2 lg:border-[#537f3c] flex flex-col justify-center items-center gap-4 lg:px-12 text-center">
           <img className="h-24" src="/selfcare.png" alt="" />
           <h1 className="text-xl font-semibold">PROFESSSIONAL CARE</h1>
           <p>
