@@ -59,9 +59,9 @@ const PaymentPage = () => {
         merchantTransactionId: transactionid,
         merchantUserId: `MUID-` + uuidv4().toString(36).slice(-6),
         amount: parseInt(price, 10) * 100,
-        redirectUrl: `http://localhost:3001/status/test/${transactionid}`,
+        redirectUrl: `http://localhost:5173/status/test/${transactionid}`,
         redirectMode: "POST",
-        callbackUrl: `http://localhost:3001/status/test${transactionid}`,
+        callbackUrl: `http://localhost:5173/status/test${transactionid}`,
         mobileNumber: "9981495170",
         paymentInstrument: {
           type: "PAY_PAGE",

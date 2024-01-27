@@ -27,7 +27,7 @@ function App() {
     <Route path="/login" element={<Login />} />
     <Route path="/pricing" element={<Pricing />} />
     <Route path="/payment/:id" element={<PaymentPage />} />
-    <Route path="/appointment/:id" element={<Appointment />} />
+    <Route path="/status/test/:id" element={<Appointment />} />
 
     <Route path="/*" element={<Pagenotfound />} />
     </Routes>
