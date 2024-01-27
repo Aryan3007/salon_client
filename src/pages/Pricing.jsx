@@ -1,9 +1,10 @@
 /* eslint-disable react/no-unescaped-entities */
 
 import { useState } from "react";
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
 import axios from "axios";
 import { useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 // import Countdown from "react-countdown";
 
 // Random component
@@ -13,14 +14,33 @@ import { useEffect } from "react";
 
 const Pricing = () => {
   const [services, setServices] = useState();
+  const naviagte=useNavigate()
   const getAllServices = async () => {
     try {
-      const res = await axios.get("https://salon-server-jupe.onrender.com/services/getservices");
+      const res = await axios.get("http://localhost:3001/services/getservices");
       setServices(res.data.allServices);
     } catch (error) {
       console.log(error);
     }
   };
+  const selectedServices = async (id) => {
+    console.log(id);
+    try {
+      const response = await axios.get(
+        `http://localhost:3001/services/selectedService/${id}`,
+       
+      );
+      if (response.data.success) {
+        naviagte(`/payment/${id}`)
+        console.log(response.data);
+      }
+    } catch (error) {
+      console.error("Error fetching selected service:", error);
+      // Handle the error (e.g., display an error message to the user)
+    }
+  };
+  
+
   useEffect(() => {
     getAllServices();
   }, []);
@@ -63,12 +83,15 @@ const Pricing = () => {
                       </span>
                     </p>
 
-                    <Link
+                    <button
                       to="/payment"
-                      className="mt-4 block btn3 rounded border border-indigo-600 bg-indigo-600 px-12 py-3 text-center text-sm font-medium text-white hover:bg-transparent hover:text-[#537f3c]  focus:outline-none focus:ring active:text-indigo-500 sm:mt-6"
+                      onClick={()=>{
+                        selectedServices(data._id)
+                      }}
+                      className="mt-4 w-full block btn3 rounded border border-indigo-600 bg-indigo-600 px-12 py-3 text-center text-sm font-medium text-white hover:bg-transparent hover:text-[#537f3c]  focus:outline-none focus:ring active:text-indigo-500 sm:mt-6"
                     >
                       Book Now
-                    </Link>
+                    </button>
                   </div>
 
                   <div className="p-6 sm:px-8">
