@@ -59,7 +59,7 @@ const PaymentPage = () => {
         merchantUserId: `MUID-` + uuidv4().toString(36).slice(-6),
         amount: parseInt(price, 10) * 100,
         redirectUrl: `https://salon-server-jupe.onrender.com/status/test/${transactionid}`,
-        redirectMode: "POST",
+        redirectMode: "GET",
         callbackUrl: `https://salon-server-jupe.onrender.com/status/test${transactionid}`,
         mobileNumber: "9981495170",
         paymentInstrument: {
