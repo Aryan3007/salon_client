@@ -104,7 +104,7 @@ const PaymentPage = () => {
 
       try {
         const res = await axios.post(
-          "http://localhost:3001/services/appointment",
+          "https://salon-client-ten.vercel.app/services/appointment",
           { name, email, mobile, address, dateTime, price }
         );
 

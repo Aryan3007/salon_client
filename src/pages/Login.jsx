@@ -14,7 +14,7 @@ const Login = () => {
     
     e.preventDefault();
     try {
-      const res = await axios.post("http://localhost:3001/auth/login", {
+      const res = await axios.post("https://salon-client-ten.vercel.app//auth/login", {
         email,
         password,
       });

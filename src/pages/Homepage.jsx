@@ -59,7 +59,7 @@ const Homepage = () => {
 
   const getAllReviews = async () => {
     try {
-      const res = await axios.get("http://localhost:3001/review/getreview");
+      const res = await axios.get("https://salon-client-ten.vercel.app//review/getreview");
       serReviews(res.data.reviews);
     } catch (error) {
       console.log(error);
@@ -67,7 +67,7 @@ const Homepage = () => {
   };  
   const postReviews = async () => {
     try {
-      const res = await axios.post("http://localhost:3001/review/postreview",{message, name});
+      const res = await axios.post("https://salon-client-ten.vercel.app//postreview",{message, name});
       serReviews(res.data.reviews);
     } catch (error) {
       console.log(error);
