@@ -29,7 +29,7 @@ function App() {
     <Route path="/pricing" element={<Pricing />} />
     <Route path="/payment/:id" element={<PaymentPage />} />
     <Route path="/status/test/:id" element={<Appointment />} />
-    <Route path="/appointment" element={<Success />} />
+    <Route path="/success" element={<Success />} />
 
     <Route path="/*" element={<Pagenotfound />} />
     </Routes>
