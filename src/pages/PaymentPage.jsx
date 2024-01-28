@@ -1,33 +1,28 @@
 /* eslint-disable react/no-unescaped-entities */
 import axios from "axios";
 import { useEffect, useState } from "react";
-import toast from "react-hot-toast";
 import { useParams } from "react-router-dom";
-import { v4 as uuidv4 } from "uuid";
-import sha256 from "crypto-js/sha256";
 
 const PaymentPage = () => {
-  const saltkey = import.meta.env.VITE_REACT_APP_SALT_KEY;
-  const saltindex = import.meta.env.VITE_REACT_APP_SALT_INDEX;
-  const merchant_id = import.meta.env.VITE_REACT_APP_MERCHANT_ID;
+
 
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [mobile, setMobile] = useState("");
   const [address, setAddress] = useState("");
-  const [dateTime, setDateTime] = useState("");
+  const [date, setDateTime] = useState(0);
 
   // eslint-disable-next-line no-unused-vars
   const [showPayment, setShowPayment] = useState("");
 
   const { id } = useParams();
   const [selected, setselected] = useState({});
-  const [price, setservice] = useState("");
+  const [amount, setservice] = useState(0);
 
   const getService = async (id) => {
     try {
       const res = await axios.get(
-        `https://salon-server-jupe.onrender.com/services/selectedService/${id}`
+        `http://localhost:3001/services/selectedService/${id}`
       );
       setservice(res.data.service.price);
       setselected(res.data.service);
@@ -35,94 +30,77 @@ const PaymentPage = () => {
       console.log(error);
     }
   };
-
-  const showPaymenpage = async () => {
-    if (
-      name !== "" ||
-      email !== "" ||
-      mobile !== "" ||
-      address !== "" ||
-      dateTime !== ""
-    ) {
-      appointment();
-    } else {
-      toast.error("Please Fill All Details");
-    }
-  };
-
-  const appointment = async () => {
-    try {
-      const transactionid = "Tr-" + uuidv4().toString(36).slice(-6);
-      const payload = {
-        merchantId: merchant_id,
-        merchantTransactionId: transactionid,
-        merchantUserId: `MUID-` + uuidv4().toString(36).slice(-6),
-        amount: parseInt(price, 10) * 100,
-        redirectUrl: `https://salon-server-jupe.onrender.com/status/test/${transactionid}`,
-        redirectMode: "GET",
-        callbackUrl: `https://salon-server-jupe.onrender.com/status/test${transactionid}`,
-        mobileNumber: "9981495170",
-        paymentInstrument: {
-          type: "PAY_PAGE",
-        },
-      };
-
-      const dataPayload = JSON.stringify(payload);
-      const encoder = new TextEncoder();
-      const dataUint8Array = encoder.encode(dataPayload);
-      const dataBase64 = btoa(String.fromCharCode.apply(null, dataUint8Array));
-
-      const fullURL = dataBase64 + "/pg/v1/pay" + saltkey;
-      const dataSha256 = sha256(fullURL);
-      const checksum = dataSha256 + "###" + saltindex;
-
-      const UAT_PAY_API_URL =
-        "https://api-preprod.phonepe.com/apis/pg-sandbox/pg/v1/pay";
-
-      const response = await axios.post(
-        UAT_PAY_API_URL,
-        {
-          request: dataBase64,
-        },
-        {
-          headers: {
-            accept: "application/json",
-            "Content-type": "application/json",
-            "X-VERIFY": checksum,
-          },
-        }
-      );
-
-      const redirect = response.data.data.instrumentResponse.redirectInfo.url;
-      window.location.replace(redirect);
-
-      // Check if the payment is successful
-
-      // Move the redirection here
-      // or use navigate(redirect)
-      // navigate(redirect);
-
-      try {
-        const res = await axios.post(
-          "https://salon-server-jupe.onrender.com/services/appointment",
-          { name, email, mobile, address, dateTime, price }
-        );
-
-        console.log(res.data);
-        // Handle the appointment API response as needed
-      } catch (error) {
-        console.log(error);
-        toast.error("Error during appointment creation");
-      }
-    } catch (error) {
-      console.log("Error in payment:", error);
-      toast.error("Error during payment");
-    }
-  };
-
   useEffect(() => {
     getService(id);
   }, [showPayment]);
+
+  const checkOutHandler = async () => {
+    try {
+        const order = await axios.post('http://localhost:3001/payment/checkout', {
+            name: name,
+            email: email,
+            mobile: mobile,
+            address: address,
+            date: date,
+            amount: parseFloat(amount)
+        });
+
+        var options = {
+            "key": "rzp_test_5brD1WxKNxDelX",
+            "amount": order.data.amount * 100,
+            "currency": "INR",
+            "name": "Nourish_Nest",
+            "description": "Test Transaction",
+            "image": "./logo.png",
+            "order_id": order.data.id,
+            "prefill": {
+                "name": "Aryan Tyagi",
+                "email": "aryantyagi111s@gmail.com",
+                "contact": "9981495170"
+            },
+            "notes": {
+                "address": "Razorpay Corporate Office"
+            },
+            "theme": {
+                "color": "#3399cc"
+            },
+            "handler": function (response) {
+              const { razorpay_payment_id, razorpay_order_id, razorpay_signature } = response;
+          
+              // Now you have the payment_id, order_id, and signature
+              // Send these values to your server for verification
+              axios.post('http://localhost:3001/payment/payment-verification', {
+                  razorpay_payment_id,
+                  razorpay_order_id,
+                  razorpay_signature
+              })
+              .then((verificationResponse) => {
+                  console.log(verificationResponse.data);
+                  
+                  // Handle success or failure based on the server's response
+                  if (verificationResponse.data.success) {
+                      window.location.href = `http://localhost:5173/success/${razorpay_payment_id}`;
+                  } else {
+                      window.location.href = "http://localhost:5173/failed";
+                  }
+              })
+              .catch((error) => {
+                  console.error(error);
+                  // Handle the error
+              });
+          },
+          
+            "callback_url": "http://localhost:3001/payment/payment-verification",
+        };
+
+        var rzp1 = new window.Razorpay(options);
+        rzp1.open();
+    } catch (error) {
+        console.log(error);
+    }
+};
+
+  
 
   return (
     <div
@@ -260,7 +238,7 @@ const PaymentPage = () => {
                 onChange={(e) => setDateTime(e.target.value)}
                 placeholder="Select Date & Time"
                 className="w-full h-12 bg-white rounded-md border-gray-300 text-black px-2 py-1"
-                id="city"
+                
                 type="date"
               />
             </div>
@@ -271,18 +249,18 @@ const PaymentPage = () => {
                 Ammount To be Paid
               </label>
               <input
-                value={price}
+                value={amount}
                 readOnly
                 className="w-full h-12 bg-white rounded-md border-gray-300 text-black px-2 py-1"
-                id="city"
-                type="text"
+                
+                type="number"
               />
             </div>
           </div>
           <div className="mt-4 flex justify-end">
             <button
               onClick={() => {
-                showPaymenpage();
+                checkOutHandler()
               }}
               className="btn2 "
               type="submit"

@@ -16,24 +16,24 @@ import Success from "./pages/Success";
 function App() {
   return (
     <>
-    <div className="w-full z-20 bg-transparent fixed">
-      <Navbar/>
-    </div>
+      <div className="w-full z-20 bg-transparent fixed">
+        <Navbar />
+      </div>
       <Toaster />
-    <Routes>
-    <Route path="/" element={<Homepage />} />
-    <Route path="/contact" element={<Contact />} />
-    <Route path="/about" element={<About />} />
-    <Route path="/register" element={<Register />} />
-    <Route path="/login" element={<Login />} />
-    <Route path="/pricing" element={<Pricing />} />
-    <Route path="/payment/:id" element={<PaymentPage />} />
-    <Route path="/status/test/:id" element={<Appointment />} />
-    <Route path="/success" element={<Success />} />
+      <Routes>
+        <Route path="/" element={<Homepage />} />
+        <Route path="/contact" element={<Contact />} />
+        <Route path="/about" element={<About />} />
+        <Route path="/register" element={<Register />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/pricing" element={<Pricing />} />
+        <Route path="/payment/:id" element={<PaymentPage />} />
+        <Route path="/status/test/:id" element={<Appointment />} />
+        <Route path="/success/:id" element={<Success />} />
 
-    <Route path="/*" element={<Pagenotfound />} />
-    </Routes>
-      <Footer/>
+        <Route path="/*" element={<Pagenotfound />} />
+      </Routes>
+      <Footer />
     </>
   );
 }
