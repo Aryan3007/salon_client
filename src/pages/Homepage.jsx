@@ -113,9 +113,9 @@ const Homepage = () => {
           </div>
         </div>
         <div className=" flex min-w-80 gap-4 justify-center items-center lg:w-1/2 w-full my-12 h-full">
-          <div className="h-96 lg:w-64 w-80 rounded-xl bg-zinc-300 shadow-2xl home1"></div>
-          <div className="h-96 lg:w-64 w-80 rounded-xl bg-zinc-300 shadow-2xl lg:translate-y-16 home2"></div>
-          <div className="h-96 lg:w-64 w-80 rounded-xl bg-zinc-300 shadow-2xl lg:translate-y-32 home3"></div>
+          <div className="h-96 lg:w-64 w-80 rounded-xl bg-zinc-100 shadow-2xl home1"></div>
+          <div className="h-96 lg:w-64 w-80 rounded-xl bg-zinc-100 shadow-2xl lg:translate-y-16 home2"></div>
+          <div className="h-96 lg:w-64 w-80 rounded-xl bg-zinc-100 shadow-2xl lg:translate-y-32 home3"></div>
         </div>
       </div>
 

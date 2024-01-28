@@ -6,7 +6,6 @@ import { useParams } from "react-router-dom";
 import { v4 as uuidv4 } from "uuid";
 import sha256 from "crypto-js/sha256";
 
-
 const PaymentPage = () => {
   const saltkey = import.meta.env.VITE_REACT_APP_SALT_KEY;
   const saltindex = import.meta.env.VITE_REACT_APP_SALT_INDEX;
@@ -45,7 +44,7 @@ const PaymentPage = () => {
       address !== "" ||
       dateTime !== ""
     ) {
-      appointment()
+      appointment();
     } else {
       toast.error("Please Fill All Details");
     }
@@ -59,27 +58,27 @@ const PaymentPage = () => {
         merchantTransactionId: transactionid,
         merchantUserId: `MUID-` + uuidv4().toString(36).slice(-6),
         amount: parseInt(price, 10) * 100,
-        redirectUrl: `http://localhost:5173/status/test/${transactionid}`,
+        redirectUrl: `https://salon-client-ten.vercel.app/status/test/${transactionid}`,
         redirectMode: "POST",
-        callbackUrl: `http://localhost:5173/status/test${transactionid}`,
+        callbackUrl: `https://salon-client-ten.vercel.app/status/test${transactionid}`,
         mobileNumber: "9981495170",
         paymentInstrument: {
           type: "PAY_PAGE",
         },
       };
-  
+
       const dataPayload = JSON.stringify(payload);
       const encoder = new TextEncoder();
       const dataUint8Array = encoder.encode(dataPayload);
       const dataBase64 = btoa(String.fromCharCode.apply(null, dataUint8Array));
-  
+
       const fullURL = dataBase64 + "/pg/v1/pay" + saltkey;
       const dataSha256 = sha256(fullURL);
       const checksum = dataSha256 + "###" + saltindex;
-  
+
       const UAT_PAY_API_URL =
         "https://api-preprod.phonepe.com/apis/pg-sandbox/pg/v1/pay";
-  
+
       const response = await axios.post(
         UAT_PAY_API_URL,
         {
@@ -93,36 +92,34 @@ const PaymentPage = () => {
           },
         }
       );
-  
+
       const redirect = response.data.data.instrumentResponse.redirectInfo.url;
       window.location.replace(redirect);
-  
+
       // Check if the payment is successful
-      if (response.data.data.instrumentResponse.responseCode) {
-        // Move the redirection here
-        // or use navigate(redirect)
-        // navigate(redirect);
-  
-        try {
-          const res = await axios.post(
-            "http://localhost:3001/services/appointment",
-            { name, email, mobile, address, dateTime, price }
-          );
-  
-          console.log(res.data);
-          // Handle the appointment API response as needed
-  
-        } catch (error) {
-          console.log(error);
-          toast.error("Error during appointment creation");
-        }
+
+      // Move the redirection here
+      // or use navigate(redirect)
+      // navigate(redirect);
+
+      try {
+        const res = await axios.post(
+          "http://localhost:3001/services/appointment",
+          { name, email, mobile, address, dateTime, price }
+        );
+
+        console.log(res.data);
+        // Handle the appointment API response as needed
+      } catch (error) {
+        console.log(error);
+        toast.error("Error during appointment creation");
       }
     } catch (error) {
       console.log("Error in payment:", error);
       toast.error("Error during payment");
     }
   };
-  
+
   useEffect(() => {
     getService(id);
   }, [showPayment]);
@@ -155,7 +152,6 @@ const PaymentPage = () => {
                     /month
                   </span>
                 </p>
-                
               </div>
 
               <div className="p-6 sm:px-8">
@@ -268,22 +264,20 @@ const PaymentPage = () => {
                 type="date"
               />
             </div>
-
-            
           </div>
           <div className="mt-4 flex flex-row space-x-2">
-          <div className="">
-            <label className="text-black" htmlFor="city">
-              Ammount To be Paid
-            </label>
-            <input
-              value={price}
-              readOnly
-              className="w-full h-12 bg-white rounded-md border-gray-300 text-black px-2 py-1"
-              id="city"
-              type="text"
-            />
-          </div>
+            <div className="">
+              <label className="text-black" htmlFor="city">
+                Ammount To be Paid
+              </label>
+              <input
+                value={price}
+                readOnly
+                className="w-full h-12 bg-white rounded-md border-gray-300 text-black px-2 py-1"
+                id="city"
+                type="text"
+              />
+            </div>
           </div>
           <div className="mt-4 flex justify-end">
             <button
@@ -297,10 +291,7 @@ const PaymentPage = () => {
             </button>
           </div>
         </div>
-        
       </div>
-
-      
     </div>
   );
 };
