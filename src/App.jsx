@@ -11,6 +11,7 @@ import { Toaster } from "react-hot-toast";
 import Register from "./pages/Register";
 import Login from "./pages/Login";
 import Appointment from "./pages/Appointment";
+import Success from "./pages/Success";
 
 function App() {
   return (
@@ -28,6 +29,7 @@ function App() {
     <Route path="/pricing" element={<Pricing />} />
     <Route path="/payment/:id" element={<PaymentPage />} />
     <Route path="/status/test/:id" element={<Appointment />} />
+    <Route path="/appointment" element={<Success />} />
 
     <Route path="/*" element={<Pagenotfound />} />
     </Routes>
