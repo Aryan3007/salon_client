@@ -7,7 +7,7 @@ const Appointment = () => {
   
     const getAppointments = async () => {
       try {
-        const response = await axios.get("http://localhost:3001/status/allappointmnet");
+        const response = await axios.get("https://salon-server-jupe.onrender.com/status/allappointmnet");
         console.log(response.data.allappointments);  
         setAppointments(response.data.allappointments);  
       } catch (error) {

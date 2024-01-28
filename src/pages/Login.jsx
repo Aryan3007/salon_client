@@ -14,7 +14,7 @@ const Login = () => {
     
     e.preventDefault();
     try {
-      const res = await axios.post("https://salon-client-ten.vercel.app//auth/login", {
+      const res = await axios.post("https://salon-server-jupe.onrender.com/auth/login", {
         email,
         password,
       });

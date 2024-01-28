@@ -24,7 +24,7 @@ const Register = () => {
       formData.append("password", password);
 
 
-        const res = await axios.post("https://salon-client-ten.vercel.app/auth/register", {firstname, lastname, email, password});
+        const res = await axios.post("https://salon-server-jupe.onrender.com/auth/register", {firstname, lastname, email, password});
     
         if (res?.data?.success) {
           toast.success(res.data.message);
