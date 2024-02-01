@@ -2,16 +2,13 @@ import axios from "axios";
 import { useState } from "react";
 import toast from "react-hot-toast";
 import { Link, useNavigate } from "react-router-dom";
-import { useAuth } from "../context/auth";
 
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [auth, setAuth] = useAuth();
   const navigate = useNavigate();
 
   const handelLogin = async (e) => {
-    
     e.preventDefault();
     try {
       const res = await axios.post("http://localhost:3001/auth/login", {
@@ -20,23 +17,21 @@ const Login = () => {
       });
       if (res?.data?.success) {
         toast.success(res.data.message);
-        setAuth({
-          ...auth,
-          user: res.data.user,
-          token: res.data.token,
-        });
+        
         localStorage.setItem("auth", JSON.stringify(res.data));
         navigate("/");
       } else {
-        toast.error(res.data.message);
+        toast.error("Invalid Email or Password");
       }
     } catch (error) {
-      console.log(error);
+      console.error("Error during login:", error.response?.data);
+      toast.error("Invalid Email or Password");
     }
   };
+  
 
   return (
-    <div className="mx-auto max-w-screen-xl lg:min-h-screen rounded-xl flex justify-center items-center px-4 py-16 sm:px-6 lg:px-8">
+    <div className="mx-auto max-w-screen-xl pt-28 lg:min-h-screen rounded-xl flex justify-center items-center px-4 py-16 sm:px-6 lg:px-8">
       <div className="mx-auto max-w-lg bg-white rounded-xl">
         <p className="mx-auto mt-4 max-w-md text-center text-gray-500">
           Lorem ipsum dolor sit amet, consectetur adipisicing elit. Obcaecati
@@ -86,14 +81,7 @@ const Login = () => {
             Sign in
           </button>
           <h1 className="text-center">OR</h1>
-          <div className="h-12 w-full flex gap-2">
-            <button className="h-full w-1/2 bg-green-900 hover:bg-white hover:border border-black hover:text-zinc-900 rounded-xl text-white">
-              Google
-            </button>
-            <button className="h-full w-1/2 bg-green-900 hover:bg-white hover:border border-black hover:text-zinc-900 rounded-xl text-white">
-              Mobile No.
-            </button>
-          </div>
+          
 
           <p className="text-center text-sm text-gray-500">
             No account?

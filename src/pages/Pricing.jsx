@@ -24,7 +24,7 @@ const Pricing = () => {
     }
   };
   const selectedServices = async (id) => {
-    console.log(id);
+    // console.log(id);
     try {
       const response = await axios.get(
         `http://localhost:3001/services/selectedService/${id}`,
@@ -32,7 +32,7 @@ const Pricing = () => {
       );
       if (response.data.success) {
         naviagte(`/payment/${id}`)
-        console.log(response.data);
+        // console.log(response.data);
       }
     } catch (error) {
       console.error("Error fetching selected service:", error);
@@ -78,9 +78,7 @@ const Pricing = () => {
                         ₹{data.price}{" "}
                       </strong>
 
-                      <span className="text-sm font-medium text-gray-700">
-                        /month
-                      </span>
+                      
                     </p>
 
                     <button

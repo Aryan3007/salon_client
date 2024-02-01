@@ -10,11 +10,15 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@headlessui/react": "^1.7.18",
+    "@heroicons/react": "^2.1.1",
     "antd": "^5.13.2",
     "axios": "^1.6.5",
     "crypto-js": "^4.2.0",
     "date-and-time": "^3.1.1",
     "dotenv": "^16.4.1",
+    "emailjs": "^4.0.3",
+    "flowbite": "^2.2.1",
     "keen-slider": "^6.8.6",
     "react": "^18.2.0",
     "react-countdown": "^2.3.5",
@@ -23,6 +27,7 @@
     "react-icons": "^5.0.1",
     "react-router-dom": "^6.21.3",
     "react-scripts": "^5.0.1",
+    "text-encoding": "^0.7.0",
     "uuid": "^9.0.1"
   },
   "devDependencies": {

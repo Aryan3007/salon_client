@@ -10,21 +10,14 @@ const Register = () => {
     const [lastname, setLastname] = useState("");
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
-    const [confirmPass, setConfirmPass] = useState("");
 
  
     const handelRegisterSubmit = async (e) => {
       e.preventDefault();
       try {
 
-        const formData = new FormData();
-      formData.append("firstname", firstname);
-      formData.append("lastname", lastname);
-      formData.append("email", email);
-      formData.append("password", password);
 
-
-        const res = await axios.post("https://salon-server-jupe.onrender.com/auth/register", {firstname, lastname, email, password});
+        const res = await axios.post("http://localhost:3001/auth/register", {firstname, lastname, email, password});
     
         if (res?.data?.success) {
           toast.success(res.data.message);
@@ -125,8 +118,8 @@ const Register = () => {
             <label htmlFor="Password" className="block text-sm font-medium text-gray-700"> Password </label>
 
             <input
-            value={confirmPass}
-            onChange={(e)=>{setConfirmPass(e.target.value)}}
+            value={password}
+            onChange={(e)=>{setPassword(e.target.value)}}
               type="password"
               id="Password"
               name="password"
@@ -134,21 +127,7 @@ const Register = () => {
             />
           </div>
 
-          <div className="col-span-6 sm:col-span-3">
-            <label htmlFor="PasswordConfirmation" className="block text-sm font-medium text-gray-700">
-              Password Confirmation
-            </label>
-
-            <input
-            value={confirmPass}
-            onChange={(e)=>{setPassword(e.target.value)}}
-              type="password"
-              id="PasswordConfirmation"
-              name="password_confirmation"
-              className="mt-1 w-full h-12 px-4 border-2 rounded-md border-gray-200 bg-white text-sm text-gray-700 shadow-sm"
-            />
-          </div>
-
+       
           
 
           <div className="col-span-6">
