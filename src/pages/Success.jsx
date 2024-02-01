@@ -1,28 +1,79 @@
 /* eslint-disable react/no-unescaped-entities */
 import { useEffect, useState } from "react";
 import axios from "axios";
+import emailjs from "@emailjs/browser";
 import { Link, useParams } from "react-router-dom";
 
 const Success = () => {
-  const { razorpayPaymentId } = useParams(); // Use the correct parameter name
-  console.log(razorpayPaymentId);
+  const { razorpayPaymentId } = useParams();
   const [status, setStatus] = useState({});
-
-  const getAppointment = async () => {
-    try {
-      const response = await axios.get(
-        `http://localhost:3001/status/appointment/${razorpayPaymentId}`
-      );
-      console.log(response);
-      setStatus(response.data.result);
-    } catch (error) {
-      console.log(error);
-    }
-  };
+  const [isDataFetched, setIsDataFetched] = useState(false);
 
   useEffect(() => {
-    getAppointment();
-  }, [razorpayPaymentId]); // Include 'razorpayPaymentId' in the dependency array to re-run the effect when it changes
+    const fetchData = async () => {
+      try {
+        const response = await axios.get(
+          `http://localhost:3001/status/appointment/${razorpayPaymentId}`
+        );
+        const appointmentData = response.data.result;
+
+        // Check if all required properties have values
+        const isValidData =
+          appointmentData &&
+          appointmentData.name &&
+          appointmentData.date &&
+          appointmentData.amount &&
+          appointmentData.address &&
+          appointmentData.razorpay_payment_id;
+
+        if (isValidData) {
+          setStatus(appointmentData);
+
+          // Set the flag to true once data is fetched successfully
+          setIsDataFetched(true);
+        } else {
+          console.error("Invalid or missing data in the API response.");
+        }
+      } catch (error) {
+        console.log(error);
+      }
+    };
+
+    fetchData();
+  }, [razorpayPaymentId]);
+
+  useEffect(() => {
+    // Check if data is fetched before calling sendEmail
+    if (isDataFetched) {
+      sendEmail();
+    }
+  }, [isDataFetched]);
+
+  const sendEmail = () => {
+    const templateParams = {
+      from_name: status.name,
+      date: status.date,
+      address: status.address,
+      amount: status.amount,
+      transId: status.razorpay_payment_id,
+    };
+
+    console.log("Sending email with params:", templateParams);
+
+    emailjs
+      .send(
+        "service_x6dxgh2",
+        "template_4mth6fb",
+        templateParams,
+        "ZO08mjNileJXhBeMT"
+      )
+      .then((result) => {
+        console.log(result);
+      })
+      .catch((error) => {
+        console.error(error);
+      });
+  };
 
   return (
     <div className="pt-24 flex justify-center items-center">
@@ -52,9 +103,12 @@ const Success = () => {
               <span className="font-semibold">{status.date}</span>
             </p>
             <p className="my-4">
-              For any quary reach us  {" "}
+              For any query, reach us{" "}
               <Link to="/contact">
-              <span className="text-green-500 font-bold underline">{" "} Here</span>
+                <span className="text-green-500 font-bold underline">
+                  {" "}
+                  Here
+                </span>
               </Link>
             </p>
           </div>

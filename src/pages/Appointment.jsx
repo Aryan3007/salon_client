@@ -7,6 +7,8 @@ const Appointment = () => {
   const [loginedUser, setLoginedUser] = useState({});
   const [appointments, setAppointments] = useState([]);
 
+
+
   const getAppointments = async () => {
     try {
       const response = await axios.get(
