@@ -123,41 +123,11 @@ const Pricing = () => {
                 </div>
               ))
             )}
+            {/* <div className="divide-y bg-zinc-100  divide-gray-200 rounded-2xl border border-[#537f3c] shadow-sm w-[800px]"></div> */}
           </div>
         </div>
       </div>
 
-      {/* <div className="h-full w-full flex justify-center items-center">
-        <div className="group mb-24 flex flex-col justify-start items-start gap-2 lg:w-1/2 w-80 h-56 duration-500 relative rounded-xl p-4 bg-zinc-900 hover:-translate-y-2 hover:shadow-xl shadow-purple-400">
-          <div
-            className="absolute p-4 duration-700 shadow-md group-hover:-translate-y-4 group-hover:-translate-x-4 -bottom-10 -right-10 w-1/2 h-1/2 rounded-lg bg-green-700"
-            alt="image here"
-          >
-            <h2 className="text-2xl text-white flex justify-center items-center flex-col font-medium">
-              Offer Valid Till : <br />
-              <Countdown date={Date.now() + 500000}>
-                <Completionist></Completionist>
-              </Countdown>
-            </h2>
-          </div>
-
-          <div className>
-            <h2 className="text-2xl font-bold mb-2 text-white">
-              Offers Section
-            </h2>
-            <p className="text-gray-200 line-clamp-3">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean
-              convallis magna quis lectus fermentum, quis scelerisque orci
-              pellentesque. Duis id porta justo. Sed ac enim id justo tincidunt
-              hendrerit id ac lectus. Pellentesque maximus posuere tortor vitae
-              consequat.
-            </p>
-          </div>
-          <button className="hover:bg-green-600 bg-green-800 text-white mt-6 rounded p-2 px-6">
-            Explore
-          </button>
-        </div>
-      </div> */}
     </>
   );
 };

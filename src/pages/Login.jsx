@@ -17,7 +17,7 @@ const Login = () => {
       });
       if (res?.data?.success) {
         toast.success(res.data.message);
-        
+
         localStorage.setItem("auth", JSON.stringify(res.data));
         navigate("/");
       } else {
@@ -28,7 +28,6 @@ const Login = () => {
       toast.error("Invalid Email or Password");
     }
   };
-  
 
   return (
     <div className="mx-auto max-w-screen-xl pt-28 lg:min-h-screen rounded-xl flex justify-center items-center px-4 py-16 sm:px-6 lg:px-8">
@@ -38,7 +37,7 @@ const Login = () => {
           sunt dolores deleniti inventore quaerat mollitia?
         </p>
 
-        <form 
+        <form
           onSubmit={handelLogin}
           className="mb-0 mt-6 space-y-4 rounded-lg p-4 shadow-lg sm:p-6 lg:p-8"
         >
@@ -81,7 +80,6 @@ const Login = () => {
             Sign in
           </button>
           <h1 className="text-center">OR</h1>
-          
 
           <p className="text-center text-sm text-gray-500">
             No account?

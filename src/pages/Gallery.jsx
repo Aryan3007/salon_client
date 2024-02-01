@@ -29,7 +29,7 @@ const Gallery = () => {
           <div className="flex items-center justify-center">
             <div className="flex items-center p-1 border border-[#537f3c] dark:border-blue-400 rounded-xl">
               <Link to="/gallery">
-              <button className="px-4 py-2 text-sm font-medium text-black hover:bg-[#537f3c] hover:text-white capitalize md:py-3 rounded-xl md:px-12">
+              <button className="px-4 py-2 text-sm font-medium bg-[#537f3c] text-white capitalize md:py-3 rounded-xl md:px-12">
                 Makeup
               </button>
               </Link>

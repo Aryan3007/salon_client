@@ -40,7 +40,7 @@ const OtherPhotos = () => {
               </button>
               </Link>
               <Link to="/other-photos">
-              <button className="px-4 py-2 text-sm font-medium text-black capitalize transition-colors duration-300 md:py-3 dark:text-blue-400 dark:hover:text-white focus:outline-none hover:bg-[#537f3c] hover:text-white rounded-xl md:px-12">
+              <button className="px-4 py-2 text-sm font-medium text-white capitalize transition-colors duration-300 md:py-3  focus:outline-none bg-[#537f3c] rounded-xl md:px-12">
               Others
               </button>
               </Link>

@@ -15,7 +15,7 @@ const Homepage = () => {
   const [name, setName] = useState("");
   // eslint-disable-next-line no-unused-vars
   const [stars, setStars] = useState("");
-console.log(stars)
+  console.log(stars);
 
   useEffect(() => {
     const keenSliderInstance = new KeenSlider(keenSliderRef.current, {
@@ -64,10 +64,13 @@ console.log(stars)
     } catch (error) {
       console.log(error);
     }
-  };  
+  };
   const postReviews = async () => {
     try {
-      const res = await axios.post("http://localhost:3001/review/postreview",{message, name});
+      const res = await axios.post("http://localhost:3001/review/postreview", {
+        message,
+        name,
+      });
       serReviews(res.data.reviews);
     } catch (error) {
       console.log(error);
@@ -78,6 +81,15 @@ console.log(stars)
   }, [serReviews.length]);
   return (
     <>
+      <a href="https://wa.me/9981495170">
+        <div className="z-20 overflow-hidden flex justify-center items-center flex-col glass bg-red fixed bottom-4 right-4">
+          <img className="h-16" src="./whatsapp.png" alt="" />
+          <button className="bg-[#537f3c] text-white py-2 px-3">
+            Chat On Whatsapp
+          </button>
+        </div>
+      </a>
+
       <div className="h-full flex lg:flex-row flex-col lg:p-24 pt-16 p-4  gap-3 w-screen">
         <div className="lg:w-1/2 w-full lg:pt-28 pt-12 flex flex-col gap-6">
           <h1 className="lg:text-6xl text-4xl font-semibold">
@@ -91,7 +103,7 @@ console.log(stars)
           </p>
           <div className="flex gap-6">
             <Link to="/gallery">
-            <button className="btn border-2 border-[#537f3c]">Gallery</button>
+              <button className="btn border-2 border-[#537f3c]">Gallery</button>
             </Link>
             <Link to="/pricing">
               <button className="btn2">Book Now</button>
@@ -178,29 +190,32 @@ console.log(stars)
           </div>
         </div>
       </div> */}
-<section className=" bg-gray-100 lg:py-12 lg:flex lg:justify-center">
-  <div className="overflow-hidden  dark:bg-gray-900 lg:mx-8 lg:flex lg:max-w-6xl lg:w-full">
-    <div className="lg:w-1/2">
-      <div className="h-64 bg-cover lg:h-full" style={{backgroundImage: 'url("https://images.unsplash.com/photo-1505159401534-f62f81037389?q=80&w=2071&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D")'}} />
-    </div>
-    <div className="max-w-xl px-6 py-12 lg:max-w-5xl lg:w-1/2">
-      <h2 className="text-2xl font-semibold text-gray-800 dark:text-white md:text-3xl">
-        Makeup Artist : <span className="text-[#537f3c]">RITU</span>
-      </h2>
-      <p className="mt-4 text-gray-900">
-        Lorem, ipsum dolor sit amet consectetur adipisicing elit.
-        Quidem modi reprehenderit vitae exercitationem aliquid dolores ullam temporibus enim expedita aperiam
-        mollitia iure consectetur dicta tenetur, porro consequuntur saepe accusantium consequatur.
-      </p>
-      <div className="inline-flex w-full mt-6 sm:w-auto">
-      <Link to="/about">
-              <button className="w-44 btn2">Explore</button>
-            </Link>
-      </div>
-    </div>
-  </div>
-</section>
-
+      <section className=" bg-gray-100 lg:my-12 lg:py-12 lg:flex lg:justify-center">
+        <div className="overflow-hidden  dark:bg-gray-900 lg:mx-8 lg:flex lg:max-w-6xl lg:w-full">
+          <div className="lg:w-1/2">
+            <div
+              className="h-64 bg-cover lg:h-full"
+              style={{ backgroundImage: 'url("src/assets/p1.jpg")' }}
+            />
+          </div>
+          <div className="max-w-xl px-6 py-12 lg:max-w-5xl lg:w-1/2">
+            <h2 className="text-2xl font-semibold text-gray-800 dark:text-white md:text-3xl">
+              Makeup Artist : <span className="text-[#537f3c]">RITU</span>
+            </h2>
+            <p className="mt-4 text-gray-900">
+              Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quidem
+              modi reprehenderit vitae exercitationem aliquid dolores ullam
+              temporibus enim expedita aperiam mollitia iure consectetur dicta
+              tenetur, porro consequuntur saepe accusantium consequatur.
+            </p>
+            <div className="inline-flex w-full mt-6 sm:w-auto">
+              <Link to="/about">
+                <button className="w-44 btn2">Explore</button>
+              </Link>
+            </div>
+          </div>
+        </div>
+      </section>
 
       {/* <div className="h-full px-12 lg:flex-row justify-center items-center flex-col flex w-full">
         <div className="h-full min-w-96 lg:border-r-[#537f3c] border-2 w-1/2 flex justify-center flex-col gap-4 items-center ">
@@ -230,10 +245,10 @@ console.log(stars)
           <div className="h-[600px] flex gap-8 flex-col-reverse lg:w-[60%]">
             <div className="h-1/2 btn rounded-xl couples bg-zinc-300 flex p-3 justify-end flex-col items-baseline">
               <div className="  flex gap-2 mb-4 text-2xl">
-                <Link to='/gallery'>
-                <h1 className="bg-white p-2 px-4 rounded-full">
-                  Collection For Couples
-                </h1>
+                <Link to="/gallery">
+                  <h1 className="bg-white p-2 px-4 rounded-full">
+                    Collection For Couples
+                  </h1>
                 </Link>
                 <div className="h-12 w-12 bg-white flex justify-center items-center rounded-full">
                   <MdArrowOutward className="text-2xl" />
@@ -243,8 +258,8 @@ console.log(stars)
             <div className="lg:h-1/2 h-full w-full flex flex-col lg:flex-row gap-8">
               <div className="lg:w-[50%] w-full btn mens flex flex-col justify-end rounded-xl bg-zinc-300 h-full">
                 <div className="  flex gap-2 mb-4 text-2xl">
-                  <Link to="/gallery">
-                  <h1 className="bg-white p-2 px-8 rounded-full">Hairs</h1>
+                  <Link to="/gallery-hairs">
+                    <h1 className="bg-white p-2 px-8 rounded-full">Hairs</h1>
                   </Link>
                   <div className="h-12 w-12 bg-white flex justify-center items-center rounded-full">
                     <MdArrowOutward className="text-2xl" />
@@ -254,7 +269,7 @@ console.log(stars)
               <div className="lg:w-[50%] w-full btn womens flex flex-col justify-end rounded-xl bg-zinc-300 h-full">
                 <div className="  flex gap-2 mb-4 text-2xl">
                   <Link to="/gallery">
-                  <h1 className="bg-white p-2 px-6 rounded-full">makeup</h1>
+                    <h1 className="bg-white p-2 px-6 rounded-full">makeup</h1>
                   </Link>
                   <div className="h-12 w-12 bg-white flex justify-center items-center rounded-full">
                     <MdArrowOutward className="text-2xl" />
@@ -266,7 +281,9 @@ console.log(stars)
           <div className="md:h-[600px] btn lg:h-[600px] h-[300px] w-[100%] kids  items-end flex rounded-xl bg-zinc-300 md:w-[40%] lg:w-[40%]">
             <div className="  flex gap-2 mb-4 text-2xl">
               <Link to="/gallery">
-              <h1 className="bg-white p-2 px-4 rounded-full">Bridal Makeup</h1>
+                <h1 className="bg-white p-2 px-4 rounded-full">
+                  Bridal Makeup
+                </h1>
               </Link>
               <div className="h-12 w-12 bg-white flex justify-center items-center rounded-full">
                 <MdArrowOutward className="text-2xl" />
@@ -463,7 +480,7 @@ console.log(stars)
               />
             </div>
           </div>
-          
+
           <h1 className="text-xl">Aryan Tyagi</h1>
 
           <p className="text-center text-sm lg:w-2/3">
@@ -491,7 +508,9 @@ console.log(stars)
           <Modal
             centered
             open={modal2Open}
-            onOk={() => {setModal2Open(false), postReviews()}}
+            onOk={() => {
+              setModal2Open(false), postReviews();
+            }}
             onCancel={() => setModal2Open(false)}
           >
             <div>
@@ -517,8 +536,10 @@ console.log(stars)
                       Name
                     </label>
                     <input
-                    value={name}
-                    onChange={(e)=>{setName(e.target.value)}}
+                      value={name}
+                      onChange={(e) => {
+                        setName(e.target.value);
+                      }}
                       className="w-full rounded-lg border-gray-200 border-2 p-3 text-sm"
                       placeholder="Name"
                       type="text"
@@ -532,8 +553,10 @@ console.log(stars)
                     </label>
 
                     <textarea
-                    value={message}
-                    onChange={(e)=>{setMessage(e.target.value)}}
+                      value={message}
+                      onChange={(e) => {
+                        setMessage(e.target.value);
+                      }}
                       className="w-full resize-none rounded-lg border-gray-200 border-2 p-3 text-sm"
                       placeholder="Start writing here..."
                       rows="8"
@@ -620,7 +643,6 @@ console.log(stars)
                       </div>
 
                       <div className="mt-4">
-                  
                         <p className="mt-4 leading-relaxed text-gray-700">
                           {review.message}
                         </p>
