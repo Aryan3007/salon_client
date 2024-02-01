@@ -18,6 +18,7 @@ import OtherPhotos from "./pages/OtherPhotos";
 import Failure from "./pages/Failure";
 
 function App() {
+  
   return (
     <>
       <div className="w-full z-20 bg-transparent fixed">

@@ -2,6 +2,8 @@ import { Link } from "react-router-dom"
 
 const Failure = () => {
   return (
+    <>
+
 <section className="h-screen flex justify-center items-center pt-24 dark:bg-gray-900">
   <div className="container flex flex-col items-center px-4 py-12 mx-auto text-center">
     <h2 className="max-w-2xl mx-auto text-2xl font-semibold tracking-tight text-gray-800 xl:text-3xl dark:text-white">
@@ -19,7 +21,7 @@ const Failure = () => {
     </div>
   </div>
 </section>
-
+ </>
   )
 }
 

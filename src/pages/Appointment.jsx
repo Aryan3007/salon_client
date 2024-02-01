@@ -68,6 +68,7 @@ const Appointment = () => {
 
 
   return (
+    <>
     <div className="h-full w-full flex justify-center items-center flex-col gap-4 p-4 pt-24">
       {appointments.length === 0 ? (
         <article className="group w-96">
@@ -136,6 +137,7 @@ const Appointment = () => {
         </>
       )}
     </div>
+      </>
   );
 };
 

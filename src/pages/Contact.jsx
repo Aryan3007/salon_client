@@ -1,6 +1,7 @@
 
 const Contact = () => {
   return (
+    <>
    <section className=" pt-24 lg:h-screen h-full dark:bg-gray-900">
   <div className="container px-6 py-12 mx-auto">
     <div className="text-center">
@@ -42,7 +43,7 @@ const Contact = () => {
       </div>
     </div>
   </div>
-</section>
+</section></>
 
   )
 }

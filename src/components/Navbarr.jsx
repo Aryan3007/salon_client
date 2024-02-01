@@ -2,7 +2,6 @@ import { Fragment, useEffect, useState } from "react";
 import { Disclosure, Menu, Transition } from "@headlessui/react";
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
 import { Link, useNavigate } from "react-router-dom";
-import { useAuth } from "../context/auth";
 import { IoPersonSharp } from "react-icons/io5";
 import toast from "react-hot-toast";
 
@@ -19,17 +18,12 @@ function classNames(...classes) {
 }
 
 export default function Navbarr() {
-  const [auth, setAuth] = useAuth();
   // eslint-disable-next-line no-unused-vars
   const [loginedUser, setLoginedUser] = useState({});
 
   const navigate = useNavigate();
   const handelLogout = () => {
-    setAuth({
-      ...auth,
-      user: null,
-      token: "",
-    });
+   
     localStorage.removeItem("auth");
     toast.success("logout successfully");
     navigate("/");
@@ -45,6 +39,12 @@ export default function Navbarr() {
     // Set the state with the parsed user data
     setLoginedUser(parsedAuthData.user);
   }, []); // Run this effect only once when the component mounts
+
+    // Use another useEffect to update auth.user based on loginedUser
+    useEffect(() => {
+      
+    }, [loginedUser]);
+  
 
   return (
     <Disclosure as="nav" className="bg-gray-50 shadow-lg">
@@ -123,7 +123,7 @@ export default function Navbarr() {
                     leaveTo="transform opacity-0 scale-95"
                   >
                     <Menu.Items className="absolute right-0 z-10 mt-2 w-48 origin-top-right rounded-md bg-white py-1 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
-                      {auth.user ? (
+                      {loginedUser ? (
                         <>
                           <Menu.Item>
                             {({ active }) => (
