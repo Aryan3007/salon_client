@@ -16,6 +16,7 @@ import Navbarr from "./components/Navbarr";
 import Hairs from "./pages/Hairs";
 import OtherPhotos from "./pages/OtherPhotos";
 import Failure from "./pages/Failure";
+import ScrollToTop from "./components/ScrollToTop";
 
 function App() {
   
@@ -26,6 +27,7 @@ function App() {
         <Navbarr/>
       </div>
       <Toaster />
+        <ScrollToTop/>
       <Routes>
         <Route exact path="/" element={<Homepage />} />
         <Route exact path="/contact" element={<Contact />} />

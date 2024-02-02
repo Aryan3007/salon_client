@@ -1,3 +1,4 @@
+/* eslint-disable react/jsx-no-target-blank */
 /* eslint-disable react/no-unescaped-entities */
 import { MdArrowOutward } from "react-icons/md";
 import KeenSlider from "keen-slider";
@@ -81,7 +82,7 @@ const Homepage = () => {
   }, [serReviews.length]);
   return (
     <>
-      <a href="https://wa.me/9981495170">
+      <a  target="_blank"  href="https://wa.me/9981495170">
         <div className="z-20 overflow-hidden flex justify-center items-center flex-col glass bg-red fixed bottom-4 right-4">
           <img className="h-16" src="./whatsapp.png" alt="" />
           <button className="bg-[#537f3c] text-white py-2 px-3">
@@ -137,30 +138,21 @@ const Homepage = () => {
           <img className="h-24" src="/experience.png" alt="" />
           <h1 className="text-xl font-semibold">PERSONALIZED EXPERIENCE</h1>
           <p>
-            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Eos ex
-            magnam illo praesentium repudiandae mollitia reprehenderit voluptate
-            in consectetur voluptatibus quis itaque, ab reiciendis placeat,
-            minima aliquam fuga blanditiis. Architecto.
+          Welcome to our sanctuary of beauty and relaxation, where your journey to self-care begins. At Nourish nest, we believe in providing a personalized experience tailored just for you.
           </p>
         </div>
         <div className="h-96 lg:w-[30%]  md:w-1/3 w-80 lg:border-x-2 lg:border-[#537f3c] flex flex-col justify-center items-center gap-4 lg:px-12 text-center">
           <img className="h-24" src="/selfcare.png" alt="" />
           <h1 className="text-xl font-semibold">PROFESSSIONAL CARE</h1>
           <p>
-            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Eos ex
-            magnam illo praesentium repudiandae mollitia reprehenderit voluptate
-            in consectetur voluptatibus quis itaque, ab reiciendis placeat,
-            minima aliquam fuga blanditiis. Architecto.
+          Indulge in a world of sophistication and precision at Nourish nest. We take pride in offering professional care that goes beyond the ordinary, providing you with an unmatched salon experience.
           </p>
         </div>
         <div className="h-96 lg:w-[30%] md:w-1/3 w-80 flex flex-col justify-center items-center gap-4 lg:px-12 text-center">
           <img className="h-24" src="/work.png" alt="" />
           <h1 className="text-xl font-semibold">WE CARE WHAT WE DO</h1>
           <p>
-            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Eos ex
-            magnam illo praesentium repudiandae mollitia reprehenderit voluptate
-            in consectetur voluptatibus quis itaque, ab reiciendis placeat,
-            minima aliquam fuga blanditiis. Architecto.
+          At Nourish nest, we don't just perform services; we cultivate an experience driven by passion and care. Our commitment goes beyond the ordinary, reflecting in every detail of what we do.
           </p>
         </div>
       </div>
