@@ -5,7 +5,7 @@ const Footer = () => {
     <footer className="bg-white mt-12 lg:grid lg:grid-cols-5">
   <div className="relative block h-32 lg:col-span-2 lg:h-full">
     <img
-      src="https://images.unsplash.com/photo-1642370324100-324b21fab3a9?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1548&q=80"
+      src="https://images.unsplash.com/photo-1516975080664-ed2fc6a32937?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
       alt=""
       className="absolute inset-0 h-full w-full object-cover"
     />
@@ -29,7 +29,7 @@ const Footer = () => {
 
         <ul className="mt-8 flex gap-6">
           
-<h1>Follow Us on Instagram :</h1>
+<h1 className="font-semibold">Follow Us on Instagram :</h1>
           <li>
             <a
               href="/"
@@ -55,43 +55,43 @@ const Footer = () => {
       <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
         <div>
      
-
+    <h1 className="text-xl font-semibold">Sections</h1>
           <ul className="mt-6 space-y-4 text-sm">
             <li>
-              <Link to="/" className="text-gray-700 transition hover:opacity-75"> Home </Link>
+              <Link to="/" className="text-gray-700 transition hover:underline hover:opacity-75"> Home </Link>
             </li>
 
             <li>
-              <Link to="/pricing" className="text-gray-700 transition hover:opacity-75"> Services </Link>
+              <Link to="/pricing" className="text-gray-700 transition hover:underline hover:opacity-75"> Services </Link>
             </li>
 
             <li>
-              <Link to="/gallery" className="text-gray-700 transition hover:opacity-75"> Gallery </Link>
+              <Link to="/gallery" className="text-gray-700 transition hover:underline hover:opacity-75"> Gallery </Link>
             </li>
 
             <li>
-              <Link to="/about" className="text-gray-700 transition hover:opacity-75"> About </Link>
+              <Link to="/about" className="text-gray-700 transition hover:underline hover:opacity-75"> About </Link>
             </li>
             <li>
-              <Link to="/contact" className="text-gray-700 transition hover:opacity-75"> Contact </Link>
+              <Link to="/contact" className="text-gray-700 transition hover:underline hover:opacity-75"> Contact </Link>
             </li>
           </ul>
         </div>
 
         <div>
        
-
+    
           <ul className="mt-6 space-y-4 text-sm">
             <li>
-              <a href="#" className="text-gray-700 transition hover:opacity-75"> About </a>
+              <a href="#" className="text-gray-700 transition hover:underline hover:opacity-75"> About </a>
             </li>
 
             <li>
-              <a href="#" className="text-gray-700 transition hover:opacity-75"> Meet the Team </a>
+              <a href="#" className="text-gray-700 transition hover:underline hover:opacity-75"> Meet the Team </a>
             </li>
 
             <li>
-              <a href="#" className="text-gray-700 transition hover:opacity-75"> Accounts Review </a>
+              <a href="#" className="text-gray-700 transition hover:underline hover:opacity-75"> Accounts Review </a>
             </li>
           </ul>
         </div>
@@ -99,7 +99,7 @@ const Footer = () => {
     </div>
 
     <div className="mt-12 border-t border-gray-100 pt-12">
-      <div className="sm:flex sm:items-center sm:justify-between">
+      <div className="sm:flex sm:items-left gap-5 flex-col sm:justify-between">
         <ul className="flex flex-wrap gap-4 text-xs">
           <li>
             <a href="#" className="text-gray-500 transition hover:opacity-75"> Terms & Conditions </a>
@@ -109,9 +109,7 @@ const Footer = () => {
             <a href="#" className="text-gray-500 transition hover:opacity-75"> Privacy Policy </a>
           </li>
 
-          <li>
-            <a href="#" className="text-gray-500 transition hover:opacity-75"> Cookies </a>
-          </li>
+          
         </ul>
 
         <p className="mt-8 text-xs text-gray-500 sm:mt-0">

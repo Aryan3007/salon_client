@@ -52,9 +52,9 @@ const Pricing = () => {
           <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 sm:items-stretch md:grid-cols-3 md:gap-8">
             {!services || services.length === 0 ? (
               <div className="flex flex-row gap-2">
-                <div className="w-4 h-4 rounded-full bg-blue-700 animate-bounce [animation-delay:.7s]" />
-                <div className="w-4 h-4 rounded-full bg-blue-700 animate-bounce [animation-delay:.3s]" />
-                <div className="w-4 h-4 rounded-full bg-blue-700 animate-bounce [animation-delay:.7s]" />
+                <div className="w-4 h-4 rounded-full bg-[#537f3c] animate-bounce [animation-delay:.7s]" />
+                <div className="w-4 h-4 rounded-full bg-[#537f3c] animate-bounce [animation-delay:.3s]" />
+                <div className="w-4 h-4 rounded-full bg-[#537f3c] animate-bounce [animation-delay:.7s]" />
               </div>
             ) : (
               services?.map((data) => (

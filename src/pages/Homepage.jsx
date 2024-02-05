@@ -7,16 +7,29 @@ import "keen-slider/keen-slider.min.css";
 import { Modal } from "antd";
 import { Link } from "react-router-dom";
 import axios from "axios";
+import toast from "react-hot-toast";
+
 
 // import Offers from "../components/Offers";
 const Homepage = () => {
   const keenSliderRef = useRef(null);
   const [reviews, serReviews] = useState([]);
+  const [updatereview, setUpdatereview] = useState(false);
   const [message, setMessage] = useState("");
   const [name, setName] = useState("");
   // eslint-disable-next-line no-unused-vars
-  const [stars, setStars] = useState("");
-  console.log(stars);
+  const [loginedUser, setLoginedUser] = useState({});
+
+  useEffect(() => {
+    // Get the user data from localStorage
+    const authData = localStorage.getItem("auth");
+
+    // Parse the string to a JavaScript object
+    const parsedAuthData = authData ? JSON.parse(authData) : {};
+
+    // Set the state with the parsed user data
+    setLoginedUser(parsedAuthData.user);
+  }, []); // Run this effect only once when the component mounts
 
   useEffect(() => {
     const keenSliderInstance = new KeenSlider(keenSliderRef.current, {
@@ -62,6 +75,7 @@ const Homepage = () => {
     try {
       const res = await axios.get("http://localhost:3001/review/getreview");
       serReviews(res.data.reviews);
+      setUpdatereview(false)
     } catch (error) {
       console.log(error);
     }
@@ -72,20 +86,29 @@ const Homepage = () => {
         message,
         name,
       });
+  
+      // Update the state with the new reviews
       serReviews(res.data.reviews);
+      // Show a success toast
+      toast.success("Review Submitted");
+      setUpdatereview(true)
+  
+      // Clear the input fields
+      setMessage("");
+      setName("");
     } catch (error) {
       console.log(error);
     }
   };
   useEffect(() => {
     getAllReviews();
-  }, [serReviews.length]);
+  }, [updatereview]);
   return (
     <>
-      <a  target="_blank"  href="https://wa.me/9981495170">
-        <div className="z-20 overflow-hidden flex justify-center items-center flex-col glass bg-red fixed bottom-4 right-4">
-          <img className="h-16" src="./whatsapp.png" alt="" />
-          <button className="bg-[#537f3c] text-white py-2 px-3">
+      <a target="_blank" href="https://wa.me/9981495170">
+        <div className="z-20 overflow-hidden w-24 flex justify-center items-center flex-col glass bg-red fixed bottom-4 right-4">
+          <img className="h-12" src="./whatsapp.png" alt="" />
+          <button className="bg-[#537f3c] text-white py-2 text-xs px-3">
             Chat On Whatsapp
           </button>
         </div>
@@ -97,10 +120,11 @@ const Homepage = () => {
             Locks of Love, Styles of Grace: Your Journey to Radiant Beauty.
           </h1>
           <p>
-            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quidem
-            nobis itaque pariatur quos facilis ipsa dolores beatae, eligendi
-            sequi optio a quasi non tempore repellendus fugiat enim at
-            doloremque consequatur.
+            Indulge in the epitome of beauty at our women's salon. Our expert
+            team awaits to tailor a personalized experience just for you. From
+            chic hairstyles to rejuvenating skincare, discover a sanctuary of
+            glamour. Book your appointment now and elevate your beauty journey
+            with us!
           </p>
           <div className="flex gap-6">
             <Link to="/gallery">
@@ -128,8 +152,8 @@ const Homepage = () => {
         </div>
         <div className=" flex min-w-80 gap-4 justify-center items-center lg:w-1/2 w-full my-12 h-full">
           <div className="h-96 lg:w-64 w-80 rounded-xl bg-zinc-100 shadow-2xl home1"></div>
-          <div className="h-96 lg:w-64 w-80 rounded-xl bg-zinc-100 shadow-2xl lg:translate-y-16 home2"></div>
-          <div className="h-96 lg:w-64 w-80 rounded-xl bg-zinc-100 shadow-2xl lg:translate-y-32 home3"></div>
+          <div className="h-96 lg:w-64 w-80 rounded-xl bg-zinc-100 shadow-2xl lg:translate-y-16 home3"></div>
+          <div className="h-96 lg:w-64 w-80 rounded-xl bg-zinc-100 shadow-2xl lg:translate-y-32 home2"></div>
         </div>
       </div>
 
@@ -138,21 +162,27 @@ const Homepage = () => {
           <img className="h-24" src="/experience.png" alt="" />
           <h1 className="text-xl font-semibold">PERSONALIZED EXPERIENCE</h1>
           <p>
-          Welcome to our sanctuary of beauty and relaxation, where your journey to self-care begins. At Nourish nest, we believe in providing a personalized experience tailored just for you.
+            Welcome to our sanctuary of beauty and relaxation, where your
+            journey to self-care begins. At Nourish nest, we believe in
+            providing a personalized experience tailored just for you.
           </p>
         </div>
         <div className="h-96 lg:w-[30%]  md:w-1/3 w-80 lg:border-x-2 lg:border-[#537f3c] flex flex-col justify-center items-center gap-4 lg:px-12 text-center">
           <img className="h-24" src="/selfcare.png" alt="" />
           <h1 className="text-xl font-semibold">PROFESSSIONAL CARE</h1>
           <p>
-          Indulge in a world of sophistication and precision at Nourish nest. We take pride in offering professional care that goes beyond the ordinary, providing you with an unmatched salon experience.
+            Indulge in a world of sophistication and precision at Nourish nest.
+            We take pride in offering professional care that goes beyond the
+            ordinary, providing you with an unmatched salon experience.
           </p>
         </div>
         <div className="h-96 lg:w-[30%] md:w-1/3 w-80 flex flex-col justify-center items-center gap-4 lg:px-12 text-center">
           <img className="h-24" src="/work.png" alt="" />
           <h1 className="text-xl font-semibold">WE CARE WHAT WE DO</h1>
           <p>
-          At Nourish nest, we don't just perform services; we cultivate an experience driven by passion and care. Our commitment goes beyond the ordinary, reflecting in every detail of what we do.
+            At Nourish nest, we don't just perform services; we cultivate an
+            experience driven by passion and care. Our commitment goes beyond
+            the ordinary, reflecting in every detail of what we do.
           </p>
         </div>
       </div>
@@ -186,7 +216,7 @@ const Homepage = () => {
         <div className="overflow-hidden  dark:bg-gray-900 lg:mx-8 lg:flex lg:max-w-6xl lg:w-full">
           <div className="lg:w-1/2">
             <div
-              className="h-64 bg-cover lg:h-full"
+              className="h-80 md:h-[500px] bg-cover lg:h-full"
               style={{ backgroundImage: 'url("src/assets/p1.jpg")' }}
             />
           </div>
@@ -237,9 +267,9 @@ const Homepage = () => {
           <div className="h-[600px] flex gap-8 flex-col-reverse lg:w-[60%]">
             <div className="h-1/2 btn rounded-xl couples bg-zinc-300 flex p-3 justify-end flex-col items-baseline">
               <div className="  flex gap-2 mb-4 text-2xl">
-                <Link to="/gallery">
+                <Link to="/other-photos">
                   <h1 className="bg-white p-2 px-4 rounded-full">
-                    Collection For Couples
+                    Other Photos
                   </h1>
                 </Link>
                 <div className="h-12 w-12 bg-white flex justify-center items-center rounded-full">
@@ -501,28 +531,24 @@ const Homepage = () => {
             centered
             open={modal2Open}
             onOk={() => {
-              setModal2Open(false), postReviews();
+              if (loginedUser) {
+                setModal2Open(false);
+                postReviews();
+              } else {
+                setModal2Open(false)
+              }
+              
             }}
             onCancel={() => setModal2Open(false)}
+            okButtonProps={{ style: { background: '#1890ff', borderColor: '#1890ff' } }}
           >
-            <div>
+            {
+              loginedUser ? (
+                 <div>
               <h1 className="text-center text-xl">Write Your Review Here</h1>
               <div className="rounded-lg bg-white lg:col-span-3 lg:p-12">
                 <form action="" className="space-y-4">
-                  <div className="flex-1">
-                    <select
-                      className="w-full h-12 border bg-white rounded-md border-gray-300 text-black px-2 py-1"
-                      id="country"
-                    >
-                      <option value>Rate Our Service</option>
-
-                      <option value={stars}>Excellent</option>
-                      <option value="DZ">Very Good</option>
-                      <option value="AO">Good</option>
-                      <option value="ZW">Bad</option>
-                      <option value="ZW">Poor</option>
-                    </select>
-                  </div>
+                 
                   <div>
                     <label className="sr-only " htmlFor="name">
                       Name
@@ -558,6 +584,13 @@ const Homepage = () => {
                 </form>
               </div>
             </div>
+              ):(
+                <div>
+                  <h1 className="font-semibold">Login to Post review</h1>
+                </div>
+              )
+            }
+           
           </Modal>
         </div>
       </div>
@@ -620,20 +653,6 @@ const Homepage = () => {
                 <div key={index} className="keen-slider__slide">
                   <blockquote className="flex h-full flex-col justify-between bg-white p-6 shadow-sm sm:p-8 lg:p-12">
                     <div>
-                      <div className="flex gap-0.5 text-green-500">
-                        {reviews.map((_, index) => (
-                          <svg
-                            key={index}
-                            className="h-5 w-5"
-                            fill="currentColor"
-                            viewBox="0 0 20 20"
-                            xmlns="http://www.w3.org/2000/svg"
-                          >
-                            <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-                          </svg>
-                        ))}
-                      </div>
-
                       <div className="mt-4">
                         <p className="mt-4 leading-relaxed text-gray-700">
                           {review.message}

@@ -16,14 +16,14 @@ const Success = () => {
           `http://localhost:3001/status/appointment/${razorpayPaymentId}`
         );
         const appointmentData = response.data.result;
-
+          console.log(appointmentData)
         // Check if all required properties have values
         const isValidData =
           appointmentData &&
           appointmentData.name &&
           appointmentData.date &&
           appointmentData.amount &&
-          appointmentData.address &&
+          appointmentData.address && appointmentData.mobile &&
           appointmentData.razorpay_payment_id;
 
         if (isValidData) {
@@ -56,6 +56,7 @@ const Success = () => {
       address: status.address,
       amount: status.amount,
       transId: status.razorpay_payment_id,
+      mobile: status.mobile,
     };
 
     console.log("Sending email with params:", templateParams);

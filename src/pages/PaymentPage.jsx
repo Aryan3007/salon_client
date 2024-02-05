@@ -29,7 +29,6 @@ const PaymentPage = () => {
     setLoginedUser(parsedAuthData.user);
   }, []); // Run this effect only once when the component mounts
 
-
   const { id } = useParams();
   const [selected, setselected] = useState({});
   const [amount, setservice] = useState(0);
@@ -47,10 +46,8 @@ const PaymentPage = () => {
   };
   useEffect(() => {
     getService(id);
-  }, [showPayment]);
+  }, [id]);
 
-
-  const [isFormInvalid, setIsFormInvalid] = useState(false);
   const checkOutHandler = async () => {
     try {
       if (
@@ -58,12 +55,11 @@ const PaymentPage = () => {
         email === "" ||
         mobile === "" ||
         address === "" ||
-        date === ""
+        date === 0
       ) {
-        setIsFormInvalid(true);  // Set the state to indicate form is invalid
         toast.error("All fields are required");
         return;
-      }  else {
+      } else {
         const order = await axios.post(
           "http://localhost:3001/payment/checkout",
           {
@@ -73,7 +69,7 @@ const PaymentPage = () => {
             address: address,
             date: date,
             amount: parseFloat(amount),
-            userId:loginedUser._id
+            userId: loginedUser._id,
           }
         );
 
@@ -132,7 +128,7 @@ const PaymentPage = () => {
 
         var rzp1 = new window.Razorpay(options);
         rzp1.open();
-        setIsFormInvalid(false);  
+
       }
     } catch (error) {
       console.log(error);
@@ -155,17 +151,13 @@ const PaymentPage = () => {
                       <span className="sr-only">Plan</span>
                     </h2>
 
-                    <p className="mt-2 text-gray-700">
-                      Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                    </p>
+                   
 
                     <p className="mt-2 sm:mt-4">
                       <strong className="text-3xl font-bold text-gray-900 sm:text-4xl">
                         {" "}
                         ₹{selected.price}{" "}
                       </strong>
-
-                      
                     </p>
                   </div>
 
@@ -294,9 +286,7 @@ const PaymentPage = () => {
               </div>
               <div className="mt-4 flex justify-end">
                 <button
-                disabled={
-                  name === "" || email === "" || mobile === "" || address === "" || date === ""
-                }
+                 
                   onClick={() => {
                     checkOutHandler();
                   }}
@@ -314,21 +304,23 @@ const PaymentPage = () => {
           <div className="mx-auto max-w-screen-xl px-4 py-32 lg:flex lg:h-screen lg:items-center">
             <div className="mx-auto max-w-xl text-center">
               <h1 className="text-3xl font-extrabold sm:text-5xl">
-                Understand User Flow.
+                To use Our Services
                 <strong className="font-extrabold text-[#537f3c] sm:block">
                   {" "}
-                  Increase Conversion.{" "}
+                  Login Now!!{" "}
                 </strong>
               </h1>
 
-              <p className="mt-4 sm:text-xl/relaxed">
-                Lorem ipsum dolor sit amet consectetur, adipisicing elit.
-                Nesciunt illo tenetur fuga ducimus numquam ea!
+              <p className="mt-4 sm:text-xl/relaxed ">
+                Unlock the full spectrum of our services—Login to access
+                exclusive features and personalized appointments. Elevate your
+                salon experience with a seamless blend of convenience and
+                customization.
               </p>
 
               <div className="mt-8 flex flex-wrap justify-center gap-4">
                 <Link
-                  className="block w-full rounded bg-[#537f3c] px-12 py-3 text-sm font-medium text-white shadow hover:bg-green-700 focus:outline-none focus:ring sm:w-auto"
+                  className="block w-full rounded bg-[#537f3c] px-12 py-3 text-sm font-medium text-white shadow hover:bg-none focus:outline-none focus:ring sm:w-auto"
                   to="/login"
                 >
                   Login now

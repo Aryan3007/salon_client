@@ -18,34 +18,39 @@ import OtherPhotos from "./pages/OtherPhotos";
 import Failure from "./pages/Failure";
 import ScrollToTop from "./components/ScrollToTop";
 
+
 function App() {
-  
   return (
     <>
       <div className="w-full z-20 bg-transparent fixed">
-        
-        <Navbarr/>
+        <Navbarr />
       </div>
-      <Toaster />
-        <ScrollToTop/>
-      <Routes>
-        <Route exact path="/" element={<Homepage />} />
-        <Route exact path="/contact" element={<Contact />} />
-        <Route exact path="/about" element={<About />} />
-        <Route exact path="/gallery" element={<Gallery />} />
-        <Route exact path="/gallery-hairs" element={<Hairs />} />
-        <Route exact path="/other-photos" element={<OtherPhotos />} />
-        <Route exact path="/register" element={<Register />} />
-        <Route exact path="/login" element={<Login />} />
-        <Route exact path="/pricing" element={<Pricing />} />
-        <Route exact path="/payment/:id" element={<PaymentPage />} />
-        <Route exact path="/appointment" element={<Appointment />} />
-        <Route exact path="/success/:razorpayPaymentId" element={<Success />} />
-        <Route exact path="/failed" element={<Failure />} />
+      <div className="flex flex-col justify-center overflow-hidden">
+        <Toaster />
+        <ScrollToTop />
+        <Routes>
+          <Route exact path="/" element={<Homepage />} />
+          <Route exact path="/contact" element={<Contact />} />
+          <Route exact path="/about" element={<About />} />
+          <Route exact path="/gallery" element={<Gallery />} />
+          <Route exact path="/gallery-hairs" element={<Hairs />} />
+          <Route exact path="/other-photos" element={<OtherPhotos />} />
+          <Route exact path="/register" element={<Register />} />
+          <Route exact path="/login" element={<Login />} />
+          <Route exact path="/pricing" element={<Pricing />} />
+          <Route exact path="/payment/:id" element={<PaymentPage />} />
+          <Route exact path="/appointment" element={<Appointment />} />
+          <Route
+            exact
+            path="/success/:razorpayPaymentId"
+            element={<Success />}
+          />
+          <Route exact path="/failed" element={<Failure />} />
 
-        <Route path="/*" element={<Pagenotfound />} />
-      </Routes>
-      <Footer />
+          <Route path="/*" element={<Pagenotfound />} />
+        </Routes>
+        <Footer />
+      </div>
     </>
   );
 }
