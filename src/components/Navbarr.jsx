@@ -23,7 +23,7 @@ export default function Navbarr() {
 
   const navigate = useNavigate();
   const handelLogout = () => {
-   
+    
     localStorage.removeItem("auth");
     toast.success("logout successfully");
     navigate("/");

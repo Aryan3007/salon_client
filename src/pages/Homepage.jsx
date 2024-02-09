@@ -119,6 +119,7 @@ const Homepage = () => {
           <h1 className="lg:text-6xl text-4xl font-semibold">
             Locks of Love, Styles of Grace: Your Journey to Radiant Beauty.
           </h1>
+          <p className=" font-bold underline">We are providing our services in indore, Mhow, Pitampur, Rau</p>
           <p>
             Indulge in the epitome of beauty at our women's salon. Our expert
             team awaits to tailor a personalized experience just for you. From
@@ -540,7 +541,7 @@ const Homepage = () => {
               
             }}
             onCancel={() => setModal2Open(false)}
-            okButtonProps={{ style: { background: '#1890ff', borderColor: '#1890ff' } }}
+            okButtonProps={{ style: { background: '#537f3c', borderColor: '#537f3c' } }}
           >
             {
               loginedUser ? (

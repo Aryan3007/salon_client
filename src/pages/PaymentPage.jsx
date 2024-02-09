@@ -74,7 +74,7 @@ const PaymentPage = () => {
         );
 
         var options = {
-          key: "rzp_test_5brD1WxKNxDelX",
+          key: "rzp_live_uPVVyBnLtxnQSb",
           amount: order.data.amount * 100,
           currency: "INR",
           name: "Nourish_Nest",
@@ -82,8 +82,8 @@ const PaymentPage = () => {
           image: "./logo.png",
           order_id: order.data.id,
           prefill: {
-            name: "Aryan Tyagi",
-            email: "aryantyagi111s@gmail.com",
+            name: "Ritu Bdola",
+            email: "ritukabdola.765@gmail.com",
             contact: "9981495170",
           },
           notes: {
