@@ -1,3 +1,4 @@
+/* eslint-disable react/no-unescaped-entities */
 /* eslint-disable no-unused-vars */
 import axios from "axios";
 import { useEffect, useState } from "react";
@@ -83,11 +84,8 @@ const Appointment = () => {
             <h3 className="text-lg font-medium text-gray-900">No Appointment Found</h3>
           </a>
       
-          <p className="mt-2 line-clamp-3 text-sm/relaxed text-gray-500">
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Recusandae dolores, possimus
-            pariatur animi temporibus nesciunt praesentium dolore sed nulla ipsum eveniet corporis quidem,
-            mollitia itaque minus soluta, voluptates neque explicabo tempora nisi culpa eius atque
-            dignissimos. Molestias explicabo corporis voluptatem?
+          <p className="mt-2  text-sm/relaxed text-gray-500">
+          Experience the ultimate in women's salon services. From stunning hair transformations to revitalizing skincare treatments, our expert team is here to pamper you. Say hello to a new level of beauty and confidence. Book your appointment now and discover the difference.
           </p>
           <Link to="/pricing">
               <button className="w-full bg-[#537f3c] my-4 py-2 rounded-xl text-white">Book Now</button>

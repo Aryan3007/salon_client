@@ -1,3 +1,4 @@
+/* eslint-disable no-irregular-whitespace */
 
 const Contact = () => {
   return (
@@ -18,7 +19,7 @@ const Contact = () => {
         </span>
         <h2 className="mt-4 text-lg font-medium text-gray-800 dark:text-white">Email</h2>
         <p className="mt-2 text-gray-500 dark:text-gray-400">Our friendly team is here to help.</p>
-        <p className="mt-2 text-[#537f3c] dark:text-blue-400">hello@merakiui.com</p>
+        <p className="mt-2 text-[#537f3c] dark:text-blue-400">ritukabdola.765@gmail.com</p>
       </div>
       <div className="flex flex-col bg-white py-4 shadow-xl hover:-translate-y-3 rounded-lg duration-200 items-center justify-center text-center">
         <span className="p-3 text-[#537f3c] rounded-full bg-blue-100/80 dark:bg-gray-800">
@@ -27,9 +28,9 @@ const Contact = () => {
             <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z" />
           </svg>
         </span>
-        <h2 className="mt-4 text-lg font-medium text-gray-800 dark:text-white">Office</h2>
-        <p className="mt-2 text-gray-500 dark:text-gray-400">Come say hello at our office HQ.</p>
-        <p className="mt-2 text-[#537f3c] dark:text-blue-400">100 Smith Street Collingwood VIC 3066 AU</p>
+        <h2 className="mt-4 text-lg font-medium text-gray-800 dark:text-white">Saloon</h2>
+        <p className="mt-2 text-gray-500 dark:text-gray-400">Come say hello at our Saloon.</p>
+        <p className="mt-2 text-[#537f3c] dark:text-blue-400">Bicholi mardana, indore</p>
       </div>
       <div className="flex flex-col bg-white py-4 shadow-xl hover:-translate-y-3 rounded-lg duration-200 items-center justify-center text-center">
         <span className="p-3 text-[#537f3c] rounded-full bg-blue-100/80 dark:bg-gray-800">
@@ -39,7 +40,7 @@ const Contact = () => {
         </span>
         <h2 className="mt-4 text-lg font-medium text-gray-800 dark:text-white">Phone</h2>
         <p className="mt-2 text-gray-500 dark:text-gray-400">Mon-Fri from 8am to 5pm.</p>
-        <p className="mt-2 text-[#537f3c] dark:text-blue-400">+1 (555) 000-0000</p>
+        <p className="mt-2 text-[#537f3c] dark:text-blue-400">+91 9770428155</p>
       </div>
     </div>
   </div>

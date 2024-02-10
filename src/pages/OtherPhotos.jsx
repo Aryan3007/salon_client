@@ -1,3 +1,4 @@
+/* eslint-disable react/no-unescaped-entities */
 /* eslint-disable no-unused-vars */
 import { useState } from "react";
 import { Link } from "react-router-dom";
@@ -23,9 +24,8 @@ const OtherPhotos = () => {
             Glance of Our Work
           </h1>
           <p className="max-w-2xl mx-auto my-6 text-center text-gray-500 dark:text-gray-300">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo
-            incidunt ex placeat modi magni quia error alias, adipisci rem
-            similique, at omnis eligendi optio eos harum.
+           
+"Discover our gallery of beauty transformations. From vibrant hair colors to flawless makeup, our work speaks volumes. Get inspired and see what we can do for you. Explore now."
           </p>
           <div className="flex items-center justify-center">
             <div className="flex items-center p-1 border border-[#537f3c] dark:border-blue-400 rounded-xl">

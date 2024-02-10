@@ -105,7 +105,7 @@ const Homepage = () => {
   }, [updatereview]);
   return (
     <>
-      <a target="_blank" href="https://wa.me/9981495170">
+      <a target="_blank" href="https://wa.me/+919770428155">
         <div className="z-20 overflow-hidden w-24 flex justify-center items-center flex-col glass bg-red fixed bottom-4 right-4">
           <img className="h-12" src="./whatsapp.png" alt="" />
           <button className="bg-[#537f3c] text-white py-2 text-xs px-3">
@@ -226,10 +226,11 @@ const Homepage = () => {
               Makeup Artist : <span className="text-[#537f3c]">RITU</span>
             </h2>
             <p className="mt-4 text-gray-900">
-              Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quidem
-              modi reprehenderit vitae exercitationem aliquid dolores ullam
-              temporibus enim expedita aperiam mollitia iure consectetur dicta
-              tenetur, porro consequuntur saepe accusantium consequatur.
+            I'm Ritu , a dedicated
+                    makeup artist driven by a profound passion for the art of
+                    transformation. With a keen eye for detail and a love for
+                    enhancing individual beauty, I embark on a journey where
+                    every face becomes my canvas.
             </p>
             <div className="inline-flex w-full mt-6 sm:w-auto">
               <Link to="/about">
@@ -507,9 +508,7 @@ const Homepage = () => {
           <h1 className="text-xl">Aryan Tyagi</h1>
 
           <p className="text-center text-sm lg:w-2/3">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab debitis
-            ut quidem et! Reprehenderit cumque aliquid eius dolore temporibus
-            illum?
+          Explore the stories of success, satisfaction, and trust, and become a part of our community of happy clients."
           </p>
         </div>
         <div className="h-full lg:w-1/2 flex flex-col gap-4 px-4 lg:px-24">
@@ -518,10 +517,7 @@ const Homepage = () => {
             Our Customer <br /> Testimonials
           </h1>
           <p>
-            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Libero
-            suscipit architecto consequatur vitae quia odit similique,
-            voluptatem, minima at cumque, exercitationem nam illum nulla maxime
-            blanditiis quasi iste necessitatibus inventore!
+          Discover what our valued customers have to say about their experiences with us. From exceptional service to personalized care, our clients share their honest feedback. These testimonials offer insights into the quality, professionalism, and dedication we bring to every interaction. Join the voices of satisfied customers and see why they choose us time and time again.
           </p>
 
           <button onClick={() => setModal2Open(true)} className="w-64 btn2">

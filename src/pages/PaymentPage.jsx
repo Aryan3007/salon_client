@@ -201,6 +201,7 @@ const PaymentPage = () => {
               <h2 className="text-black font-semibold text-xl">
                 Appointment Shedule Form
               </h2>
+              <p className=" text-sm my-4 font-semibold underline text-green-700">NOTE : We are providing our services in indore, Mhow, Pitampur, Rau</p>
               <div className="flex flex-wrap gap-4">
                 <div className="mt-4">
                   <label className="text-black" htmlFor="name">
