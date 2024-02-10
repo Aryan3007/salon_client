@@ -27,6 +27,7 @@ export default function Navbarr() {
     localStorage.removeItem("auth");
     toast.success("logout successfully");
     navigate("/");
+    window.location.reload();
   };
 
   useEffect(() => {
