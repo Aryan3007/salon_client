@@ -1,5 +1,5 @@
 import axios from "axios";
-import { useState } from "react";
+import {  useState } from "react";
 import toast from "react-hot-toast";
 import { Link, useNavigate } from "react-router-dom";
 
@@ -20,6 +20,7 @@ const Login = () => {
 
         localStorage.setItem("auth", JSON.stringify(res.data));
         navigate("/");
+        window.location.reload();
       } else {
         toast.error("Invalid Email or Password");
       }
@@ -28,6 +29,7 @@ const Login = () => {
       toast.error("Invalid Email or Password");
     }
   };
+
 
   return (
     <div className="mx-auto max-w-screen-xl pt-28 lg:min-h-screen rounded-xl flex justify-center items-center px-4 py-16 sm:px-6 lg:px-8">

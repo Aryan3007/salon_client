@@ -82,9 +82,8 @@ const PaymentPage = () => {
           image: "./logo.png",
           order_id: order.data.id,
           prefill: {
-            name: "Ritu Bdola",
-            email: "ritukabdola.765@gmail.com",
-            contact: "9981495170",
+
+            contact: mobile,
           },
           notes: {
             address: "Razorpay Corporate Office",
