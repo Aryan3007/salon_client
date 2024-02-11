@@ -73,7 +73,7 @@ const Homepage = () => {
 
   const getAllReviews = async () => {
     try {
-      const res = await axios.get("https://salon-server-jupe.onrender.com/review/getreview");
+      const res = await axios.get("http://localhost:3001/review/getreview");
       serReviews(res.data.reviews);
       setUpdatereview(false)
     } catch (error) {
@@ -82,7 +82,14 @@ const Homepage = () => {
   };
   const postReviews = async () => {
     try {
-      const res = await axios.post("https://salon-server-jupe.onrender.com/review/postreview", {
+      // Check if message and name are not empty before sending the request
+      if (!message || !name) {
+        // Show an error toast indicating that message and name are required
+        toast.error("Message and Name are required");
+        return; // Exit the function early to avoid making the request
+      }
+  
+      const res = await axios.post("http://localhost:3001/review/postreview", {
         message,
         name,
       });
@@ -91,15 +98,18 @@ const Homepage = () => {
       serReviews(res.data.reviews);
       // Show a success toast
       toast.success("Review Submitted");
-      setUpdatereview(true)
+      setUpdatereview(true);
   
       // Clear the input fields
       setMessage("");
       setName("");
     } catch (error) {
       console.log(error);
+      // Show an error toast indicating that the review submission failed
+      toast.error("Failed to submit review. Please try again later.");
     }
   };
+  
   useEffect(() => {
     getAllReviews();
   }, [updatereview]);
@@ -505,7 +515,7 @@ const Homepage = () => {
             </div>
           </div>
 
-          <h1 className="text-xl">Aryan Tyagi</h1>
+         
 
           <p className="text-center text-sm lg:w-2/3">
           Explore the stories of success, satisfaction, and trust, and become a part of our community of happy clients."
@@ -648,7 +658,7 @@ const Homepage = () => {
             <div ref={keenSliderRef} id="keen-slider" className="keen-slider">
               {reviews?.map((review, index) => (
                 <div key={index} className="keen-slider__slide">
-                  <blockquote className="flex h-full flex-col justify-between bg-white p-6 shadow-sm sm:p-8 lg:p-12">
+                  <blockquote className="flex h-full flex-col justify-between bg-white cursor-grab p-6 shadow-sm sm:p-8 lg:p-12">
                     <div>
                       <div className="mt-4">
                         <p className="mt-4 leading-relaxed text-gray-700">

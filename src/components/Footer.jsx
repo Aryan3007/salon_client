@@ -32,7 +32,7 @@ const Footer = () => {
 <h1 className="font-semibold">Follow Us on Instagram :</h1>
           <li>
             <a
-              href="/"
+              href="https://www.instagram.com/skincare.makeup_with_ritu?igsh=MWRtbXlscXM5cWN5bA=="
               rel="noreferrer"
               target="_blank"
               className="text-gray-700 transition hover:opacity-75"

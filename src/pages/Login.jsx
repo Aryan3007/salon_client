@@ -1,5 +1,5 @@
 import axios from "axios";
-import {  useState } from "react";
+import { useState } from "react";
 import toast from "react-hot-toast";
 import { Link, useNavigate } from "react-router-dom";
 
@@ -11,7 +11,7 @@ const Login = () => {
   const handelLogin = async (e) => {
     e.preventDefault();
     try {
-      const res = await axios.post("https://salon-server-jupe.onrender.com/auth/login", {
+      const res = await axios.post("http://localhost:3001/auth/login", {
         email,
         password,
       });
@@ -30,15 +30,9 @@ const Login = () => {
     }
   };
 
-
   return (
     <div className="mx-auto max-w-screen-xl pt-28 lg:min-h-screen rounded-xl flex justify-center items-center px-4 py-16 sm:px-6 lg:px-8">
       <div className="mx-auto max-w-lg bg-white rounded-xl">
-        <p className="mx-auto mt-4 max-w-md text-center text-gray-500">
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Obcaecati
-          sunt dolores deleniti inventore quaerat mollitia?
-        </p>
-
         <form
           onSubmit={handelLogin}
           className="mb-0 mt-6 space-y-4 rounded-lg p-4 shadow-lg sm:p-6 lg:p-8"
@@ -75,6 +69,11 @@ const Login = () => {
             placeholder="Enter password"
           />
 
+          <Link to="/forgetpass">
+            <h1 className="w-full underline text-green-600 flex justify-end">
+              Forgot password?
+            </h1>
+          </Link>
           <button
             type="submit"
             className="block w-full rounded-lg btn2 bg-indigo-600 px-5 py-3 text-sm font-medium text-white"

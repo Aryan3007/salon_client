@@ -36,7 +36,7 @@ const PaymentPage = () => {
   const getService = async (id) => {
     try {
       const res = await axios.get(
-        `https://salon-server-jupe.onrender.com/services/selectedService/${id}`
+        `http://localhost:3001/services/selectedService/${id}`
       );
       setservice(res.data.service.price);
       setselected(res.data.service);
@@ -61,7 +61,7 @@ const PaymentPage = () => {
         return;
       } else {
         const order = await axios.post(
-          "https://salon-server-jupe.onrender.com/payment/checkout",
+          "http://localhost:3001/payment/checkout",
           {
             name: name,
             email: email,
@@ -101,7 +101,7 @@ const PaymentPage = () => {
             // Now you have the payment_id, order_id, and signature
             // Send these values to your server for verification
             axios
-              .post("https://salon-server-jupe.onrender.com/payment/payment-verification", {
+              .post("http://localhost:3001/payment/payment-verification", {
                 razorpay_payment_id,
                 razorpay_order_id,
                 razorpay_signature,
@@ -122,7 +122,7 @@ const PaymentPage = () => {
               });
           },
 
-          callback_url: "https://salon-server-jupe.onrender.com/payment/payment-verification",
+          callback_url: "http://localhost:3001/payment/payment-verification",
         };
 
         var rzp1 = new window.Razorpay(options);

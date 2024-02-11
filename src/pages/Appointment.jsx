@@ -13,7 +13,7 @@ const Appointment = () => {
   const getAppointments = async () => {
     try {
       const response = await axios.get(
-        "https://salon-server-jupe.onrender.com/status/allappointmnet",
+        "http://localhost:3001/status/allappointmnet",
         {
           params: {
             userId: loginedUser._id,
@@ -46,7 +46,7 @@ const Appointment = () => {
   const deleteNullAppointments = async () => {
     try {
       const response = await axios.delete(
-        "https://salon-server-jupe.onrender.com/status/allappointmnet",
+        "http://localhost:3001/status/allappointmnet",
         {
           params: {
             userId: loginedUser._id,

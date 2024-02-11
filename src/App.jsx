@@ -17,6 +17,8 @@ import Hairs from "./pages/Hairs";
 import OtherPhotos from "./pages/OtherPhotos";
 import Failure from "./pages/Failure";
 import ScrollToTop from "./components/ScrollToTop";
+import OTPinput from "./components/OTPinput";
+import PasswordChange from "./pages/PasswordChange";
 
 
 function App() {
@@ -37,6 +39,8 @@ function App() {
           <Route exact path="/other-photos" element={<OtherPhotos />} />
           <Route exact path="/register" element={<Register />} />
           <Route exact path="/login" element={<Login />} />
+          <Route exact path="/forgetpass" element={<OTPinput />} />
+          <Route exact path="/changepassword" element={<PasswordChange />} />
           <Route exact path="/pricing" element={<Pricing />} />
           <Route exact path="/payment/:id" element={<PaymentPage />} />
           <Route exact path="/appointment" element={<Appointment />} />
