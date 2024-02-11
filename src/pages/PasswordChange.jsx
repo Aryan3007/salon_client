@@ -112,7 +112,7 @@ const PasswordChange = (props) => {
 };
 
 PasswordChange.propTypes = {
-  email: PropTypes.string.isRequired,
+  email: PropTypes.string,
 };
 
 export default PasswordChange;

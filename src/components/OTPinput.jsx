@@ -32,7 +32,7 @@ const OTPinput = () => {
   const checkCode = () => {
     if (OTP === otpsended) {
       setVerified(true);
-      console.log("OTP verified");
+      
     } else {
       console.log("Wrong OTP");
     }
@@ -51,9 +51,7 @@ const OTPinput = () => {
         templateParams,
         "ZO08mjNileJXhBeMT"
       )
-      .then(() => {
-        console.log("Email sent successfully");
-      })
+      
       .catch((error) => {
         console.error("Error sending email:", error);
       });

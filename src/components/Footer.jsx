@@ -2,7 +2,7 @@ import { Link } from "react-router-dom"
 
 const Footer = () => {
   return (
-    <footer className="bg-white mt-12 lg:grid lg:grid-cols-5">
+    <footer className="bg-white lg:h-96 mt-12 lg:grid lg:grid-cols-5">
   <div className="relative block h-32 lg:col-span-2 lg:h-full">
     <img
       src="https://images.unsplash.com/photo-1516975080664-ed2fc6a32937?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
@@ -98,7 +98,7 @@ const Footer = () => {
       </div>
     </div>
 
-    <div className="mt-12 border-t border-gray-100 pt-12">
+    <div className="border-t border-gray-100 ">
       <div className="sm:flex sm:items-left gap-5 flex-col sm:justify-between">
         <ul className="flex flex-wrap gap-4 text-xs">
           <li>

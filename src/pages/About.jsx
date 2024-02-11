@@ -19,11 +19,11 @@ const About = () => {
                     creativity, precision, and a keen eye for detail to every
                     project. my goal is to enhance individual beauty and bring
                     artistic visions to life. Let's create something beautiful
-                    together! Hello, beauty enthusiasts! I'm Ritu , a dedicated
+                    together! <br />  <br />Hello, beauty enthusiasts! I'm Ritu , a dedicated
                     makeup artist driven by a profound passion for the art of
                     transformation. With a keen eye for detail and a love for
                     enhancing individual beauty, I embark on a journey where
-                    every face becomes my canvas. My makeup journey began 11
+                    every face becomes my canvas. <br /><br /> My makeup journey began 11
                     years ago, and since then, I've honed my skills through
                     formal training and hands-on experiences. Specializing in a
                     diverse range of styles, from soft and natural to bold and
