@@ -34,7 +34,7 @@ const PasswordChange = (props) => {
     setLoading(true);
     
     try {
-      const response = await axios.post("http://localhost:3001/auth/setnewPassword", {
+      const response = await axios.post("https://salon-server-jupe.onrender.com/auth/setnewPassword", {
         newPassword,
         email
       });

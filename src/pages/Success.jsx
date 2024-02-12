@@ -13,7 +13,7 @@ const Success = () => {
     const fetchData = async () => {
       try {
         const response = await axios.get(
-          `http://localhost:3001/status/appointment/${razorpayPaymentId}`
+          `https://salon-server-jupe.onrender.com/status/appointment/${razorpayPaymentId}`
         );
         const appointmentData = response.data.result;
           console.log(appointmentData)

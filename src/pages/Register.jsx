@@ -18,7 +18,7 @@ const Register = () => {
       try {
 
 
-        const res = await axios.post("http://localhost:3001/auth/register", {firstname, lastname, email, password, mobile});
+        const res = await axios.post("https://salon-server-jupe.onrender.com/auth/register", {firstname, lastname, email, password, mobile});
     
         if (res?.data?.success) {
           toast.success(res.data.message);

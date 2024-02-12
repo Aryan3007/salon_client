@@ -13,7 +13,7 @@ const OTPinput = () => {
 
   const forgetpass = async () => {
     try {
-      const res = await axios.post("http://localhost:3001/auth/forgetpass", {
+      const res = await axios.post("https://salon-server-jupe.onrender.com/auth/forgetpass", {
         email,
       });
       if (res.data && res.data.otp) {
