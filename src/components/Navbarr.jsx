@@ -76,7 +76,7 @@ export default function Navbarr() {
                       src="./logo.png"
                       alt=""
                     />
-                    <h1 className="text-xl font-bold ">Nourish_nest</h1>
+                    <h1 className="text-xl font-serif font-bold ">Nourish_nest</h1>
                   </div>
                 </Link>
               </div>

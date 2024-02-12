@@ -44,7 +44,7 @@ const Appointment = () => {
   const deleteNullAppointments = async () => {
     try {
       const response = await axios.delete(
-        "https://salon-server-jupe.onrender.com/status/allappointmnet",
+        "https://salon-server-jupe.onrender.com/status/deleteAppointmnet",
         {
           params: {
             userId: loginedUser._id,

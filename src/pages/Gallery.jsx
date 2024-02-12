@@ -6,13 +6,28 @@ import { useState } from "react";
 const Gallery = () => {
   const [photos, setPhotos] = useState([
     "src/assets/q.jpg",
+    "src/assets/l.jpg",
+    "src/assets/z.jpg",
+    "src/assets/x.jpg",
+    "src/assets/c.jpg",
+    "src/assets/b.jpg",
+    "src/assets/n.jpg",
+    "src/assets/m.jpg",
     "src/assets/w.jpg",
     "src/assets/e.jpg",
     "src/assets/r.jpg",
     "src/assets/t.jpg",
     "src/assets/y.jpg",
     "src/assets/u.jpg",
-    "src/assets/q.jpg",
+    "src/assets/i.jpg",
+    "src/assets/o.jpg",
+    "src/assets/p.jpg",
+    "src/assets/a.jpg",
+    "src/assets/s.jpg",
+    "src/assets/f.jpg",
+    "src/assets/h.jpg",
+    "src/assets/j.jpg",
+    "src/assets/k.jpg",
   ]);
 
   return (
@@ -47,8 +62,8 @@ const Gallery = () => {
           </div>
           <div className="grid grid-cols-1 gap-8 mt-8 xl:mt-16 md:grid-cols-2 xl:grid-cols-4">
             {photos.map((src, index) => (
-              <div key={index} className="flex overflow-hidden rounded-xl flex-col items-center">
-                <img src={src} alt={`Photo ${index + 1}`} />
+              <div key={index} className="flex overflow-hidden flex-col items-center">
+                <img className="h-[500px] w-full" src={src} alt={`Photo ${index + 1}`} />
               </div>
             ))}
           </div>

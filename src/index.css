@@ -12,13 +12,6 @@ body{
   margin: 0;
 }
 
-::-webkit-scrollbar {
-  display: none;
-}
-
-::-webkit-scrollbar-button {
-  display: none;
-}
 .glass{
   /* From https://css.glass */
 background: rgba(255, 255, 255, 0.2);
@@ -29,19 +22,19 @@ backdrop-filter: blur(5px);
 border: 1px solid rgba(255, 255, 255, 0.3);
 }
 .home1{
-  background-image: url(https://images.unsplash.com/flagged/photo-1551854716-8b811be39e7e?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D);
+  background-image: url(assets/home1.jpg);
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
 }
 .home2{
-  background-image: url(https://images.unsplash.com/photo-1619516388835-2b60acc4049e?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D);
+  background-image: url(assets/home3.jpg);
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
 }
 .home3{
-  background-image: url(https://images.unsplash.com/photo-1610048869310-d889ff25c374?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D);
+  background-image: url(assets/home2.jpg);
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -217,28 +210,30 @@ border: 1px solid rgba(255, 255, 255, 0.3);
                 -20px -20px 60px #ffffff;
  }
 
- .couples{
-  background-image: url(https://images.unsplash.com/photo-1535276120455-84c8ada2414b?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D);
+ .couples {
+  background-image: url(assets/othersimg.jpg);
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
- }
- .mens{
-  background-image: url(https://images.unsplash.com/photo-1582328555858-ff7d408baa03?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D);
+}
+
+.mens {
+  background-image: url(assets/hairs.jpg);
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
- } 
- 
- .womens{
-  background-image: url(https://images.unsplash.com/photo-1558906373-1128aa8522a8?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D);
+}
+
+.womens {
+  background-image: url(assets/l.jpg);
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
- } 
- .kids{
-  background-image: url(https://images.unsplash.com/photo-1672788694268-ecc234591d31?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D);
+}
+
+.kids {
+  background-image: url(assets/bridal.jpg);
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
- }
+}

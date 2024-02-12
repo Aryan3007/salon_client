@@ -53,7 +53,7 @@ const Hairs = () => {
           <div className="grid grid-cols-1 gap-8 mt-8 xl:mt-16 md:grid-cols-2 xl:grid-cols-4">
             {photos.map((src, index) => (
               <div key={index} className="flex overflow-hidden rounded-xl flex-col items-center">
-                <img src={src} alt={`Photo ${index + 1}`} />
+                <img className="h-[450px] w-full" src={src} alt={`Photo ${index + 1}`} />
               </div>
             ))}
           </div>

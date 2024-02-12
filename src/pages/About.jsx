@@ -64,7 +64,7 @@ const About = () => {
 
                 <img
                   alt="Student"
-                  src="src/assets/p3.jpg"
+                  src="src/assets/about2.jpg"
                   className="h-40 rounded-xl w-full object-cover sm:h-56 md:h-full"
                 />
               </div>

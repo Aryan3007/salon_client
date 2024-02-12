@@ -2,6 +2,7 @@ import { useState } from "react";
 import axios from "axios";
 import emailjs from "@emailjs/browser";
 import PasswordChange from "../pages/PasswordChange";
+import toast from "react-hot-toast";
 
 const OTPinput = () => {
   const [OTP, setOTP] = useState("");
@@ -25,7 +26,7 @@ const OTPinput = () => {
         console.log("Error sending OTP:", res.data.error);
       }
     } catch (error) {
-      console.log("Error sending OTP:", error.message);
+      toast.error("User not registered");
     }
   };
 
