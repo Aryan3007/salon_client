@@ -19,9 +19,6 @@ const Appointment = () => {
         }
       );
       setAppointments(response.data.appointments);
-
-      // Chain the deletion function here
-      await deleteNullAppointments();
     } catch (error) {
       console.log(error);
     }
@@ -41,21 +38,7 @@ const Appointment = () => {
     getAppointments();
   }, [loginedUser._id]); // Run this effect whenever loginedUser._id changes
 
-  const deleteNullAppointments = async () => {
-    try {
-      const response = await axios.delete(
-        "https://salon-server-jupe.onrender.com/status/deleteAppointmnet",
-        {
-          params: {
-            userId: loginedUser._id,
-          },
-        }
-      );
-      setAppointments(response.data.appointments);
-    } catch (error) {
-      console.log(error);
-    }
-  };
+
 
   // Filter out appointments with null values for razorpay_payment_id, razorpay_order_id, and razorpay_signature
   const filteredAppointments = appointments.filter(

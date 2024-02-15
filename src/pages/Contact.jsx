@@ -40,7 +40,7 @@ const Contact = () => {
         </span>
         <h2 className="mt-4 text-lg font-medium text-gray-800 dark:text-white">Phone</h2>
         <p className="mt-2 text-gray-500 dark:text-gray-400">Mon-Fri from 8am to 5pm.</p>
-        <p className="mt-2 text-[#537f3c] dark:text-blue-400">+91 9770428155</p>
+        <p className="mt-2 text-[#537f3c] dark:text-blue-400">+91 8234013979</p>
       </div>
     </div>
   </div>

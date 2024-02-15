@@ -21,7 +21,12 @@ backdrop-filter: blur(5px);
 -webkit-backdrop-filter: blur(5px);
 border: 1px solid rgba(255, 255, 255, 0.3);
 }
-.home1{
+.ritucover{
+  background-image: url(assets/ritu.jpg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}.home1{
   background-image: url(assets/home1.jpg);
   background-position: center;
   background-repeat: no-repeat;
@@ -218,14 +223,14 @@ border: 1px solid rgba(255, 255, 255, 0.3);
 }
 
 .mens {
-  background-image: url(assets/hairs.jpg);
+  background-image: url(assets/homehair.jpg);
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
 }
 
 .womens {
-  background-image: url(assets/l.jpg);
+  background-image: url(assets/g11.jpg);
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;

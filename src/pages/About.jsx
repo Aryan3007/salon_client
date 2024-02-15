@@ -59,13 +59,13 @@ const About = () => {
                 <img
                   alt="Student"
                   src="src/assets/p1.jpg"
-                  className="h-40 rounded-xl w-full object-cover sm:h-56 md:h-full"
+                  className="h-64 lg:object-cover  rounded-xl w-full sm:h-96 md:h-full"
                 />
 
                 <img
                   alt="Student"
                   src="src/assets/about2.jpg"
-                  className="h-40 rounded-xl w-full object-cover sm:h-56 md:h-full"
+                  className="h-64 rounded-xl w-full object-cover sm:h-96 md:h-full"
                 />
               </div>
             </div>

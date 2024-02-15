@@ -18,7 +18,7 @@ const Footer = () => {
           <span className="text-xs uppercase tracking-wide text-gray-500"> Call Us </span>
 
           <span  className="block text-2xl font-medium text-gray-900 hover:opacity-75 sm:text-3xl">
-          9770428155
+          8234013979
           </span>
         </p>
 

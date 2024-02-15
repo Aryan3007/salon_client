@@ -1,3 +1,4 @@
+/* eslint-disable no-irregular-whitespace */
 /* eslint-disable react/jsx-no-target-blank */
 /* eslint-disable react/no-unescaped-entities */
 import { MdArrowOutward } from "react-icons/md";
@@ -8,7 +9,6 @@ import { Modal } from "antd";
 import { Link } from "react-router-dom";
 import axios from "axios";
 import toast from "react-hot-toast";
-
 
 // import Offers from "../components/Offers";
 const Homepage = () => {
@@ -73,9 +73,11 @@ const Homepage = () => {
 
   const getAllReviews = async () => {
     try {
-      const res = await axios.get("https://salon-server-jupe.onrender.com/review/getreview");
+      const res = await axios.get(
+        "https://salon-server-jupe.onrender.com/review/getreview"
+      );
       serReviews(res.data.reviews);
-      setUpdatereview(false)
+      setUpdatereview(false);
     } catch (error) {
       console.log(error);
     }
@@ -88,18 +90,21 @@ const Homepage = () => {
         toast.error("Message and Name are required");
         return; // Exit the function early to avoid making the request
       }
-  
-      const res = await axios.post("https://salon-server-jupe.onrender.com/review/postreview", {
-        message,
-        name,
-      });
-  
+
+      const res = await axios.post(
+        "https://salon-server-jupe.onrender.com/review/postreview",
+        {
+          message,
+          name,
+        }
+      );
+
       // Update the state with the new reviews
       serReviews(res.data.reviews);
       // Show a success toast
       toast.success("Review Submitted");
       setUpdatereview(true);
-  
+
       // Clear the input fields
       setMessage("");
       setName("");
@@ -109,7 +114,7 @@ const Homepage = () => {
       toast.error("Failed to submit review. Please try again later.");
     }
   };
-  
+
   useEffect(() => {
     getAllReviews();
   }, [updatereview]);
@@ -129,7 +134,9 @@ const Homepage = () => {
           <h1 className="lg:text-6xl text-4xl font-semibold">
             Locks of Love, Styles of Grace: Your Journey to Radiant Beauty.
           </h1>
-          <p className=" font-bold underline">We are providing our services in indore, Mhow, Pitampur, Rau</p>
+          <p className=" font-bold underline">
+            We are providing our services in indore, Mhow, Pitampur, Rau
+          </p>
           <p>
             Indulge in the epitome of beauty at our women's salon. Our expert
             team awaits to tailor a personalized experience just for you. From
@@ -227,8 +234,7 @@ const Homepage = () => {
         <div className="overflow-hidden  dark:bg-gray-900 lg:mx-8 lg:flex lg:max-w-6xl lg:w-full">
           <div className="lg:w-1/2">
             <div
-              className="h-80 md:h-[500px] bg-cover lg:h-full"
-              style={{ backgroundImage: 'url("src/assets/p1.jpg")' }}
+              className="h-80 md:h-[500px] bg-cover ritucover lg:h-full"
             />
           </div>
           <div className="max-w-xl px-6 py-12 lg:max-w-5xl lg:w-1/2">
@@ -236,11 +242,10 @@ const Homepage = () => {
               Makeup Artist : <span className="text-[#537f3c]">RITU</span>
             </h2>
             <p className="mt-4 text-gray-900">
-            I'm Ritu , a dedicated
-                    makeup artist driven by a profound passion for the art of
-                    transformation. With a keen eye for detail and a love for
-                    enhancing individual beauty, I embark on a journey where
-                    every face becomes my canvas.
+              I'm Ritu , a dedicated makeup artist driven by a profound passion
+              for the art of transformation. With a keen eye for detail and a
+              love for enhancing individual beauty, I embark on a journey where
+              every face becomes my canvas.
             </p>
             <div className="inline-flex w-full mt-6 sm:w-auto">
               <Link to="/about">
@@ -340,7 +345,7 @@ const Homepage = () => {
           >
             <summary className="flex cursor-pointer items-center justify-between gap-1.5 rounded-lg bg-gray-50 p-4 text-gray-900">
               <h2 className="font-medium">
-                Lorem ipsum dolor sit amet consectetur adipisicing?
+                What is actually keratin treatment ?
               </h2>
               <svg
                 className="h-5 w-5 shrink-0 transition duration-300 group-open:-rotate-180"
@@ -358,16 +363,48 @@ const Homepage = () => {
               </svg>
             </summary>
             <p className="mt-4 px-4 leading-relaxed text-gray-700">
-              Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ab hic
-              veritatis molestias culpa in, recusandae laboriosam neque aliquid
-              libero nesciunt voluptate dicta quo officiis explicabo
-              consequuntur distinctio corporis earum similique!
+              A keratin treatment is a hair-smoothing procedure that aims to
+              reduce frizz, enhance shine, and make hair more manageable. It
+              involves applying a solution containing keratin (a protein
+              naturally found in hair) to the hair, then sealing it in with heat
+              from a flat iron. The result is smoother, straighter hair that is
+              easier to style.
+            </p>
+          </details>
+          <details className="group [&_summary::-webkit-details-marker]:hidden">
+            <summary className="flex cursor-pointer items-center justify-between gap-1.5 rounded-lg bg-gray-50 p-4 text-gray-900">
+              <h2 className="font-medium">What is nanoplastia treatment?</h2>
+              <svg
+                className="h-5 w-5 shrink-0 transition duration-300 group-open:-rotate-180"
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M19 9l-7 7-7-7"
+                />
+              </svg>
+            </summary>
+            <p className="mt-4 px-4 leading-relaxed text-gray-700">
+              Nanoplastia treatment is a hair-smoothing technique similar to
+              keratin treatment but uses nanoparticles to infuse keratin into
+              the hair shaft more effectively. The nanoparticles are smaller
+              than the molecules used in traditional keratin treatments,
+              allowing for deeper penetration into the hair cuticle. This
+              results in smoother, more manageable hair with reduced frizz and
+              increased shine. Nanoplastia treatments are often marketed as
+              being gentler and less damaging to the hair compared to
+              traditional keratin treatments.
             </p>
           </details>
           <details className="group [&_summary::-webkit-details-marker]:hidden">
             <summary className="flex cursor-pointer items-center justify-between gap-1.5 rounded-lg bg-gray-50 p-4 text-gray-900">
               <h2 className="font-medium">
-                Lorem ipsum dolor sit amet consectetur adipisicing?
+                Is scalp treatment really necessary?
               </h2>
               <svg
                 className="h-5 w-5 shrink-0 transition duration-300 group-open:-rotate-180"
@@ -385,16 +422,15 @@ const Homepage = () => {
               </svg>
             </summary>
             <p className="mt-4 px-4 leading-relaxed text-gray-700">
-              Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ab hic
-              veritatis molestias culpa in, recusandae laboriosam neque aliquid
-              libero nesciunt voluptate dicta quo officiis explicabo
-              consequuntur distinctio corporis earum similique!
+              A good scalp treatment can help to restore the health of your
+              scalp. It can better absorb vital nutrients, strengthen the hair
+              follicles and in turn, support strong healthy hair growth.
             </p>
           </details>
           <details className="group [&_summary::-webkit-details-marker]:hidden">
             <summary className="flex cursor-pointer items-center justify-between gap-1.5 rounded-lg bg-gray-50 p-4 text-gray-900">
               <h2 className="font-medium">
-                Lorem ipsum dolor sit amet consectetur adipisicing?
+                What are the benefits of getting facials?
               </h2>
               <svg
                 className="h-5 w-5 shrink-0 transition duration-300 group-open:-rotate-180"
@@ -412,17 +448,15 @@ const Homepage = () => {
               </svg>
             </summary>
             <p className="mt-4 px-4 leading-relaxed text-gray-700">
-              Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ab hic
-              veritatis molestias culpa in, recusandae laboriosam neque aliquid
-              libero nesciunt voluptate dicta quo officiis explicabo
-              consequuntur distinctio corporis earum similique!
+              Facials can help hydrate, plump and protect your skin for the long
+              haul. “Doing these treatments allows your skin to be continuously
+              exfoliated, which helps bring forth new skin." This helps to:
+              Shrink the size of your pores.
             </p>
           </details>
           <details className="group [&_summary::-webkit-details-marker]:hidden">
             <summary className="flex cursor-pointer items-center justify-between gap-1.5 rounded-lg bg-gray-50 p-4 text-gray-900">
-              <h2 className="font-medium">
-                Lorem ipsum dolor sit amet consectetur adipisicing?
-              </h2>
+              <h2 className="font-medium">Does skin care actually works?</h2>
               <svg
                 className="h-5 w-5 shrink-0 transition duration-300 group-open:-rotate-180"
                 xmlns="http://www.w3.org/2000/svg"
@@ -439,37 +473,10 @@ const Homepage = () => {
               </svg>
             </summary>
             <p className="mt-4 px-4 leading-relaxed text-gray-700">
-              Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ab hic
-              veritatis molestias culpa in, recusandae laboriosam neque aliquid
-              libero nesciunt voluptate dicta quo officiis explicabo
-              consequuntur distinctio corporis earum similique!
-            </p>
-          </details>
-          <details className="group [&_summary::-webkit-details-marker]:hidden">
-            <summary className="flex cursor-pointer items-center justify-between gap-1.5 rounded-lg bg-gray-50 p-4 text-gray-900">
-              <h2 className="font-medium">
-                Lorem ipsum dolor sit amet consectetur adipisicing?
-              </h2>
-              <svg
-                className="h-5 w-5 shrink-0 transition duration-300 group-open:-rotate-180"
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M19 9l-7 7-7-7"
-                />
-              </svg>
-            </summary>
-            <p className="mt-4 px-4 leading-relaxed text-gray-700">
-              Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ab hic
-              veritatis molestias culpa in, recusandae laboriosam neque aliquid
-              libero nesciunt voluptate dicta quo officiis explicabo
-              consequuntur distinctio corporis earum similique!
+              Absolutely. While having a skincare routine may seem like just a
+              cosmetic necessity, a skincare routine is not just to help you
+              look good, it's essential for your skin's health. Think about it.
+              Your skin is the largest organ in your body.
             </p>
           </details>
         </div>
@@ -481,44 +488,43 @@ const Homepage = () => {
             <div className="h-16 overflow-hidden lg:flex md:flex hidden w-16 bg-zinc-300 rounded-full">
               <img
                 className="h-full w-full"
-                src="https://images.unsplash.com/photo-1705965485279-4c3ee59ea5af?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                src="src/assets/t3.jpg"
                 alt=""
               />
             </div>
             <div className="h-20 overflow-hidden w-20 bg-zinc-300 rounded-full">
               <img
                 className="h-full w-full"
-                src="https://images.unsplash.com/photo-1697081544011-e472e6a19cc8?q=80&w=2071&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                src="src/assets/t2.jpg"
                 alt=""
               />
             </div>
             <div className="h-32 w-32 bg-zinc-300 flex justify-center items-center overflow-hidden rounded-full">
               <img
                 className="h-full w-full"
-                src="https://plus.unsplash.com/premium_photo-1664889357942-227d2a16ef9f?q=80&w=1925&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                src="src/assets/t1.jpg"
                 alt=""
               />
             </div>
             <div className="h-20 overflow-hidden w-20 bg-zinc-300 rounded-full">
               <img
                 className="h-full w-full"
-                src="https://images.unsplash.com/photo-1697081544006-c5bb266e3940?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                src="src/assets/t4.jpg"
                 alt=""
               />
             </div>
             <div className="h-16 overflow-hidden lg:flex md:flex hidden w-16 bg-zinc-300 rounded-full">
               <img
                 className="h-full w-full"
-                src="https://images.unsplash.com/photo-1697081544094-39589abec590?q=80&w=2071&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                src="src/assets/t5.jpg"
                 alt=""
               />
             </div>
           </div>
 
-         
-
           <p className="text-center text-sm lg:w-2/3">
-          Explore the stories of success, satisfaction, and trust, and become a part of our community of happy clients."
+            Explore the stories of success, satisfaction, and trust, and become
+            a part of our community of happy clients."
           </p>
         </div>
         <div className="h-full lg:w-1/2 flex flex-col gap-4 px-4 lg:px-24">
@@ -527,7 +533,12 @@ const Homepage = () => {
             Our Customer <br /> Testimonials
           </h1>
           <p>
-          Discover what our valued customers have to say about their experiences with us. From exceptional service to personalized care, our clients share their honest feedback. These testimonials offer insights into the quality, professionalism, and dedication we bring to every interaction. Join the voices of satisfied customers and see why they choose us time and time again.
+            Discover what our valued customers have to say about their
+            experiences with us. From exceptional service to personalized care,
+            our clients share their honest feedback. These testimonials offer
+            insights into the quality, professionalism, and dedication we bring
+            to every interaction. Join the voices of satisfied customers and see
+            why they choose us time and time again.
           </p>
 
           <button onClick={() => setModal2Open(true)} className="w-64 btn2">
@@ -542,62 +553,59 @@ const Homepage = () => {
                 setModal2Open(false);
                 postReviews();
               } else {
-                setModal2Open(false)
+                setModal2Open(false);
               }
-              
             }}
             onCancel={() => setModal2Open(false)}
-            okButtonProps={{ style: { background: '#537f3c', borderColor: '#537f3c' } }}
+            okButtonProps={{
+              style: { background: "#537f3c", borderColor: "#537f3c" },
+            }}
           >
-            {
-              loginedUser ? (
-                 <div>
-              <h1 className="text-center text-xl">Write Your Review Here</h1>
-              <div className="rounded-lg bg-white lg:col-span-3 lg:p-12">
-                <form action="" className="space-y-4">
-                 
-                  <div>
-                    <label className="sr-only " htmlFor="name">
-                      Name
-                    </label>
-                    <input
-                      value={name}
-                      onChange={(e) => {
-                        setName(e.target.value);
-                      }}
-                      className="w-full rounded-lg border-gray-200 border-2 p-3 text-sm"
-                      placeholder="Name"
-                      type="text"
-                      id="name"
-                    />
-                  </div>
+            {loginedUser ? (
+              <div>
+                <h1 className="text-center text-xl">Write Your Review Here</h1>
+                <div className="rounded-lg bg-white lg:col-span-3 lg:p-12">
+                  <form action="" className="space-y-4">
+                    <div>
+                      <label className="sr-only " htmlFor="name">
+                        Name
+                      </label>
+                      <input
+                        value={name}
+                        onChange={(e) => {
+                          setName(e.target.value);
+                        }}
+                        className="w-full rounded-lg border-gray-200 border-2 p-3 text-sm"
+                        placeholder="Name"
+                        type="text"
+                        id="name"
+                      />
+                    </div>
 
-                  <div>
-                    <label className="sr-only" htmlFor="message">
-                      Start Writing here
-                    </label>
+                    <div>
+                      <label className="sr-only" htmlFor="message">
+                        Start Writing here
+                      </label>
 
-                    <textarea
-                      value={message}
-                      onChange={(e) => {
-                        setMessage(e.target.value);
-                      }}
-                      className="w-full resize-none rounded-lg border-gray-200 border-2 p-3 text-sm"
-                      placeholder="Start writing here..."
-                      rows="8"
-                      id="message"
-                    ></textarea>
-                  </div>
-                </form>
-              </div>
-            </div>
-              ):(
-                <div>
-                  <h1 className="font-semibold">Login to Post review</h1>
+                      <textarea
+                        value={message}
+                        onChange={(e) => {
+                          setMessage(e.target.value);
+                        }}
+                        className="w-full resize-none rounded-lg border-gray-200 border-2 p-3 text-sm"
+                        placeholder="Start writing here..."
+                        rows="8"
+                        id="message"
+                      ></textarea>
+                    </div>
+                  </form>
                 </div>
-              )
-            }
-           
+              </div>
+            ) : (
+              <div>
+                <h1 className="font-semibold">Login to Post review</h1>
+              </div>
+            )}
           </Modal>
         </div>
       </div>
