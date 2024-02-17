@@ -131,11 +131,13 @@ const Homepage = () => {
 
       <div className="h-full flex lg:flex-row flex-col lg:p-24 pt-16 p-4  gap-3 w-screen">
         <div className="lg:w-1/2 w-full lg:pt-28 pt-12 flex flex-col gap-6">
-          <h1 className="lg:text-6xl text-4xl font-semibold">
-            Locks of Love, Styles of Grace: Your Journey to Radiant Beauty.
+          <h1 className="lg:text-5xl text-4xl font-semibold">
+            Locks of Love, Styles of Grace: Your Journey to Radiant Beauty with{" "}
+            <span className=" text-green-500 underline">Nourish Nest</span> Home Care
+            Services.
           </h1>
           <p className=" font-bold underline">
-            We are providing our services in indore, Mhow, Pitampur, Rau
+            We are providing our home services in Indore, Mhow, Pitampur, Rau
           </p>
           <p>
             Indulge in the epitome of beauty at our women's salon. Our expert
@@ -176,26 +178,34 @@ const Homepage = () => {
       </div>
 
       <div className="h-full w-full justify-center flex flex-row flex-wrap gap-6 px-12">
-        <div className="h-96 lg:w-[30%]  md:w-1/3 w-80 flex flex-col  justify-center items-center gap-4 lg:px-12 text-center">
-          <img className="h-24" src="/experience.png" alt="" />
+        <div className="h-96 lg:w-[30%]  md:w-1/3 w-80 flex flex-col  justify-start items-center gap-4 lg:px-12 text-center">
+          <img className="h-24 w-24" src="/experience.png" alt="" />
           <h1 className="text-xl font-semibold">PERSONALIZED EXPERIENCE</h1>
           <p>
-            Welcome to our sanctuary of beauty and relaxation, where your
-            journey to self-care begins. At Nourish nest, we believe in
-            providing a personalized experience tailored just for you.
+            "Indulge in the ultimate luxury with our personalized home
+            experience. Elevate your senses and transform your space into a
+            sanctuary tailored just for you. From curated ambiance to bespoke
+            services, we bring the epitome of comfort and refinement to your
+            doorstep. Discover the joy of personalized pampering and relaxation,
+            where every detail is crafted with your utmost satisfaction in mind.
+            Welcome home to an experience that's uniquely yours."
           </p>
         </div>
-        <div className="h-96 lg:w-[30%]  md:w-1/3 w-80 lg:border-x-2 lg:border-[#537f3c] flex flex-col justify-center items-center gap-4 lg:px-12 text-center">
-          <img className="h-24" src="/selfcare.png" alt="" />
+        <div className="h-96 lg:w-[30%]  md:w-1/3 w-80 lg:border-x-2 lg:border-[#537f3c] flex flex-col justify-start items-center gap-4 lg:px-12 text-center">
+          <img className="h-24 w-24" src="/selfcare.png" alt="" />
           <h1 className="text-xl font-semibold">PROFESSSIONAL CARE</h1>
           <p>
-            Indulge in a world of sophistication and precision at Nourish nest.
-            We take pride in offering professional care that goes beyond the
-            ordinary, providing you with an unmatched salon experience.
+            Experience the epitome of professional care with Nourish Nest's
+            luxury home services. Our expert team brings the artistry of makeup,
+            the mastery of hairstyling, and the science of skincare right to
+            your doorstep. From flawless makeup to stunning hairstyles and
+            personalized skincare routines, indulge in a pampering experience
+            like no other, all within the comfort and convenience
+            of your own home.
           </p>
         </div>
-        <div className="h-96 lg:w-[30%] md:w-1/3 w-80 flex flex-col justify-center items-center gap-4 lg:px-12 text-center">
-          <img className="h-24" src="/work.png" alt="" />
+        <div className="h-96 lg:w-[30%] md:w-1/3 w-80 flex flex-col justify-start items-center gap-4 lg:px-12 text-center">
+          <img className="h-24 w-24" src="/work.png" alt="" />
           <h1 className="text-xl font-semibold">WE CARE WHAT WE DO</h1>
           <p>
             At Nourish nest, we don't just perform services; we cultivate an
@@ -233,9 +243,7 @@ const Homepage = () => {
       <section className=" bg-gray-100 lg:my-12 lg:py-12 lg:flex lg:justify-center">
         <div className="overflow-hidden  dark:bg-gray-900 lg:mx-8 lg:flex lg:max-w-6xl lg:w-full">
           <div className="lg:w-1/2">
-            <div
-              className="h-80 md:h-[500px] bg-cover ritucover lg:h-full"
-            />
+            <div className="h-80 md:h-[500px] bg-cover ritucover lg:h-full" />
           </div>
           <div className="max-w-xl px-6 py-12 lg:max-w-5xl lg:w-1/2">
             <h2 className="text-2xl font-semibold text-gray-800 dark:text-white md:text-3xl">
@@ -277,7 +285,7 @@ const Homepage = () => {
         <h1 className="text-xl text-center">- Photo Gallery</h1>
         <h1 className="text-4xl px-4 lg:px-44 text-center">
           Indulge in Luxury, Transform with Elegance: Your Journey to Radiant
-          Beauty Begins Here at Ritu's Salon
+          Beauty Begins Here at Ritu's Home Services
         </h1>
 
         <div className="flex gap-8 text-white my-12 md:px-20 p-4 lg:flex-row flex-col md:flex-row">
@@ -486,39 +494,19 @@ const Homepage = () => {
         <div className=" p-12 flex justify-center items-center flex-col gap-1 lg:w-1/2 w-full h-full">
           <div className="flex justify-center items-center flex-row gap-2">
             <div className="h-16 overflow-hidden lg:flex md:flex hidden w-16 bg-zinc-300 rounded-full">
-              <img
-                className="h-full w-full"
-                src="src/assets/t3.jpg"
-                alt=""
-              />
+              <img className="h-full w-full" src="src/assets/t3.jpg" alt="" />
             </div>
             <div className="h-20 overflow-hidden w-20 bg-zinc-300 rounded-full">
-              <img
-                className="h-full w-full"
-                src="src/assets/t2.jpg"
-                alt=""
-              />
+              <img className="h-full w-full" src="src/assets/t2.jpg" alt="" />
             </div>
             <div className="h-32 w-32 bg-zinc-300 flex justify-center items-center overflow-hidden rounded-full">
-              <img
-                className="h-full w-full"
-                src="src/assets/t1.jpg"
-                alt=""
-              />
+              <img className="h-full w-full" src="src/assets/t1.jpg" alt="" />
             </div>
             <div className="h-20 overflow-hidden w-20 bg-zinc-300 rounded-full">
-              <img
-                className="h-full w-full"
-                src="src/assets/t4.jpg"
-                alt=""
-              />
+              <img className="h-full w-full" src="src/assets/t4.jpg" alt="" />
             </div>
             <div className="h-16 overflow-hidden lg:flex md:flex hidden w-16 bg-zinc-300 rounded-full">
-              <img
-                className="h-full w-full"
-                src="src/assets/t5.jpg"
-                alt=""
-              />
+              <img className="h-full w-full" src="src/assets/t5.jpg" alt="" />
             </div>
           </div>
 
