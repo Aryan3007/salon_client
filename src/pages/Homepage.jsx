@@ -178,7 +178,7 @@ const Homepage = () => {
       </div>
 
       <div className="h-full w-full justify-center flex flex-row flex-wrap gap-6 px-12">
-        <div className="h-96 lg:w-[30%]  md:w-1/3 w-80 flex flex-col  justify-start items-center gap-4 lg:px-12 text-center">
+        <div className="h-full lg:w-[30%]  md:w-1/3 w-80 flex flex-col  justify-start items-center gap-4 lg:px-12 text-center">
           <img className="h-24 w-24" src="/experience.png" alt="" />
           <h1 className="text-xl font-semibold">PERSONALIZED EXPERIENCE</h1>
           <p>
@@ -191,7 +191,7 @@ const Homepage = () => {
             Welcome home to an experience that's uniquely yours."
           </p>
         </div>
-        <div className="h-96 lg:w-[30%]  md:w-1/3 w-80 lg:border-x-2 lg:border-[#537f3c] flex flex-col justify-start items-center gap-4 lg:px-12 text-center">
+        <div className="h-full lg:w-[30%]  md:w-1/3 w-80 lg:border-x-2 lg:border-[#537f3c] flex flex-col justify-start items-center gap-4 lg:px-12 text-center">
           <img className="h-24 w-24" src="/selfcare.png" alt="" />
           <h1 className="text-xl font-semibold">PROFESSSIONAL CARE</h1>
           <p>
@@ -204,7 +204,7 @@ const Homepage = () => {
             of your own home.
           </p>
         </div>
-        <div className="h-96 lg:w-[30%] md:w-1/3 w-80 flex flex-col justify-start items-center gap-4 lg:px-12 text-center">
+        <div className="h-full lg:w-[30%] md:w-1/3 w-80 flex flex-col justify-start items-center gap-4 lg:px-12 text-center">
           <img className="h-24 w-24" src="/work.png" alt="" />
           <h1 className="text-xl font-semibold">WE CARE WHAT WE DO</h1>
           <p>

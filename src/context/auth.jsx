@@ -1,4 +1,5 @@
 import PropTypes from "prop-types";
+import axios from "axios";
 import { createContext, useContext, useEffect, useState } from "react";
 const AuthContext = createContext();
 
@@ -7,6 +8,8 @@ const AuthProvider = ({ children }) => {
     user: null,
     token: "",
   });
+
+  axios.defaults.headers.common["Authorization"] = auth?.token;
 
   useEffect(() => {
     const data = localStorage.getItem("auth");
@@ -18,7 +21,7 @@ const AuthProvider = ({ children }) => {
         token: parseData.token,
       });
     }
-  }, []);
+  },[]);
   return (
     <AuthContext.Provider value={[auth, setAuth]}>
       {children}

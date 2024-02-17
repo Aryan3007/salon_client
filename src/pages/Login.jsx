@@ -2,39 +2,63 @@ import axios from "axios";
 import { useState } from "react";
 import toast from "react-hot-toast";
 import { Link, useNavigate } from "react-router-dom";
+import { useAuth } from "../context/auth";
 
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [loading, setLoading] = useState(false); // Add loading state
   const navigate = useNavigate();
+  const [auth, setAuth] = useAuth();
 
-  const handelLogin = async (e) => {
+  const handleLogin = async (e) => {
     e.preventDefault();
+    setLoading(true); // Set loading state to true when login starts
+  
     try {
       const res = await axios.post("https://salon-server-jupe.onrender.com/auth/login", {
         email,
         password,
       });
+      
       if (res?.data?.success) {
-        toast.success(res.data.message);
-
+        toast.success("Login successful");
+        setAuth({
+          ...auth,
+          user: res.data.user,
+          token: res.data.token,
+        });
         localStorage.setItem("auth", JSON.stringify(res.data));
-        navigate("/");
-        window.location.reload();
+        navigate(location.state || "/");
       } else {
-        toast.error("Invalid Email or Password");
+        toast.error("Wrong email or password");
       }
     } catch (error) {
-      console.error("Error during login:", error.response?.data);
-      toast.error("Invalid Email or Password");
+      if (error.response) {
+        // The request was made and the server responded with a status code
+        console.error("Response data:", error.response.data);
+        console.error("Response status:", error.response.status);
+        console.error("Response headers:", error.response.headers);
+        toast.error("Wrong email or password");
+      } else if (error.request) {
+        // The request was made but no response was received
+        console.error("No response received:", error.request);
+        toast.error("No response from the server");
+      } else {
+        // Something happened in setting up the request that triggered an Error
+        console.error("Request setup error:", error.message);
+        toast.error("Error setting up the request");
+      }
+    } finally {
+      setLoading(false); // Set loading state to false after login attempt
     }
   };
-
+  
   return (
     <div className="mx-auto max-w-screen-xl pt-28 lg:min-h-screen rounded-xl flex justify-center items-center px-4 py-16 sm:px-6 lg:px-8">
       <div className="mx-auto max-w-lg bg-white rounded-xl">
         <form
-          onSubmit={handelLogin}
+          onSubmit={handleLogin}
           className="mb-0 mt-6 space-y-4 rounded-lg p-4 shadow-lg sm:p-6 lg:p-8"
         >
           <p className="text-center text-lg font-medium">
@@ -76,9 +100,10 @@ const Login = () => {
           </Link>
           <button
             type="submit"
+            disabled={loading} // Disable button while loading
             className="block w-full rounded-lg btn2 bg-indigo-600 px-5 py-3 text-sm font-medium text-white"
           >
-            Sign in
+            {loading ? "Logging in..." : "Sign in"} {/* Show loading text if loading */}
           </button>
           <h1 className="text-center">OR</h1>
 

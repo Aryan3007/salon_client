@@ -3,10 +3,12 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import { useAuth } from "../context/auth";
 
 const Appointment = () => {
   const [loginedUser, setLoginedUser] = useState({});
   const [appointments, setAppointments] = useState([]);
+  const [auth, setAuth] = useAuth();
 
   const getAppointments = async () => {
     try {

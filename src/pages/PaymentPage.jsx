@@ -1,4 +1,3 @@
-/* eslint-disable no-unused-vars */
 /* eslint-disable react/no-unescaped-entities */
 import axios from "axios";
 import { useEffect, useState } from "react";
@@ -11,35 +10,26 @@ const PaymentPage = () => {
   const [mobile, setMobile] = useState("");
   const [address, setAddress] = useState("");
   const [date, setDateTime] = useState(0);
+  const [loading, setLoading] = useState(false);
 
-  // eslint-disable-next-line no-unused-vars
-  const [showPayment, setShowPayment] = useState("");
-
-  // eslint-disable-next-line no-unused-vars
   const [loginedUser, setLoginedUser] = useState({});
-
   useEffect(() => {
-    // Get the user data from localStorage
     const authData = localStorage.getItem("auth");
-
-    // Parse the string to a JavaScript object
     const parsedAuthData = authData ? JSON.parse(authData) : {};
-
-    // Set the state with the parsed user data
     setLoginedUser(parsedAuthData.user);
-  }, []); // Run this effect only once when the component mounts
+  }, []);
 
   const { id } = useParams();
-  const [selected, setselected] = useState({});
-  const [amount, setservice] = useState(0);
+  const [selected, setSelected] = useState({});
+  const [amount, setService] = useState(0);
 
   const getService = async (id) => {
     try {
       const res = await axios.get(
         `https://salon-server-jupe.onrender.com/services/selectedService/${id}`
       );
-      setservice(res.data.service.price);
-      setselected(res.data.service);
+      setService(res.data.service.price);
+      setSelected(res.data.service);
     } catch (error) {
       console.log(error);
     }
@@ -50,6 +40,7 @@ const PaymentPage = () => {
 
   const checkOutHandler = async () => {
     try {
+      setLoading(true); // Set loading state to true when processing payment
       if (
         name === "" ||
         email === "" ||
@@ -58,6 +49,7 @@ const PaymentPage = () => {
         date === 0
       ) {
         toast.error("All fields are required");
+        setLoading(false); // Set loading state to false after validation error
         return;
       } else {
         const order = await axios.post(
@@ -125,82 +117,72 @@ const PaymentPage = () => {
           callback_url: "https://salon-server-jupe.onrender.com/payment/payment-verification",
         };
 
+
         var rzp1 = new window.Razorpay(options);
         rzp1.open();
-
       }
     } catch (error) {
       console.log(error);
+    } finally {
+      setLoading(false); // Set loading state to false after payment processing
     }
   };
 
   return (
     <>
       {loginedUser ? (
-        <div
-          className={`lg:p-24 p-4 h-full pt-24 flex lg:flex-row justify-center flex-col  w-full`}
-        >
+        <div className="lg:p-24 p-4 h-full pt-24 flex lg:flex-row justify-center flex-col w-full">
           <div className="h-[700px] lg:flex w-96 hidden justify-center">
             <div className="max-w-screen-xl px-4 py-8 sm:px-6 sm:py-5">
-              <div className=" ">
-                <div className="divide-y bg-zinc-100 divide-gray-200 rounded-2xl border border-[#537f3c] shadow-sm">
-                  <div className="p-6 sm:px-8">
-                    <h2 className="text-lg font-medium uppercase text-gray-900">
-                      {selected.name}
-                      <span className="sr-only">Plan</span>
-                    </h2>
-
-                   
-
-                    <p className="mt-2 sm:mt-4">
-                      <strong className="text-3xl font-bold text-gray-900 sm:text-4xl">
-                        {" "}
-                        ₹{selected.price}{" "}
-                      </strong>
-                    </p>
-                  </div>
-
-                  <div className="p-6 sm:px-8">
-                    <p className="text-lg font-medium text-gray-900 sm:text-xl">
-                      What's included:
-                    </p>
-
-                    <ul className="mt-2 space-y-2 sm:mt-4">
-                      {selected.included?.map((list, index) => (
-                        <li key={index} className="flex items-center gap-1">
-                          <svg
-                            xmlns="http://www.w3.org/2000/svg"
-                            fill="none"
-                            viewBox="0 0 24 24"
-                            strokeWidth="1.5"
-                            stroke="currentColor"
-                            className="h-5 w-5 text-indigo-700"
-                          >
-                            <path
-                              strokeLinecap="round"
-                              strokeLinejoin="round"
-                              d="M4.5 12.75l6 6 9-13.5"
-                            />
-                          </svg>
-
-                          <span className="text-gray-700">{list}</span>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
+              <div className="divide-y bg-zinc-100 divide-gray-200 rounded-2xl border border-[#537f3c] shadow-sm">
+                <div className="p-6 sm:px-8">
+                  <h2 className="text-lg font-medium uppercase text-gray-900">
+                    {selected.name}
+                  </h2>
+                  <p className="mt-2 sm:mt-4">
+                    <strong className="text-3xl font-bold text-gray-900 sm:text-4xl">
+                      ₹{selected.price}
+                    </strong>
+                  </p>
+                </div>
+                <div className="p-6 sm:px-8">
+                  <p className="text-lg font-medium text-gray-900 sm:text-xl">
+                    What's included:
+                  </p>
+                  <ul className="mt-2 space-y-2 sm:mt-4">
+                    {selected.included?.map((list, index) => (
+                      <li key={index} className="flex items-center gap-1">
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          fill="none"
+                          viewBox="0 0 24 24"
+                          strokeWidth="1.5"
+                          stroke="currentColor"
+                          className="h-5 w-5 text-indigo-700"
+                        >
+                          <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            d="M4.5 12.75l6 6 9-13.5"
+                          />
+                        </svg>
+                        <span className="text-gray-700">{list}</span>
+                      </li>
+                    ))}
+                  </ul>
                 </div>
               </div>
             </div>
           </div>
-
           <div className="flex flex-col lg:w-2/3 w-full h-full gap-4">
-            <div
-              className={` h-full mt-6 w-full flex flex-col bg-gray-100 border border-[#537f3c] rounded-xl p-4 shadow-sm`}
-            >
+            <div className="h-full mt-6 w-full flex flex-col bg-gray-100 border border-[#537f3c] rounded-xl p-4 shadow-sm">
               <h2 className="text-black font-semibold text-xl">
-                Appointment Shedule Form
+                Appointment Schedule Form
               </h2>
-              <p className=" text-sm my-4 font-semibold underline text-green-700">NOTE : We are providing our services in indore, Mhow, Pitampur, Rau</p>
+              <p className="text-sm my-4 font-semibold underline text-green-700">
+                NOTE : We are providing our services in indore, Mhow, Pitampur,
+                Rau
+              </p>
               <div className="flex flex-wrap gap-4">
                 <div className="mt-4">
                   <label className="text-black" htmlFor="name">
@@ -243,7 +225,6 @@ const PaymentPage = () => {
                   />
                 </div>
               </div>
-
               <div className="mt-4">
                 <label className="text-black" htmlFor="address">
                   Address
@@ -274,7 +255,7 @@ const PaymentPage = () => {
               <div className="mt-4 flex flex-row space-x-2">
                 <div className="">
                   <label className="text-black" htmlFor="city">
-                    Ammount To be Paid
+                    Amount To be Paid
                   </label>
                   <input
                     value={amount}
@@ -286,11 +267,10 @@ const PaymentPage = () => {
               </div>
               <div className="mt-4 flex justify-end">
                 <button
-                 
                   onClick={() => {
                     checkOutHandler();
                   }}
-                  className="btn2 "
+                  className="btn2"
                   type="submit"
                 >
                   Proceed for Payment
@@ -310,14 +290,12 @@ const PaymentPage = () => {
                   Login Now!!{" "}
                 </strong>
               </h1>
-
-              <p className="mt-4 sm:text-xl/relaxed ">
+              <p className="mt-4 sm:text-xl/relaxed">
                 Unlock the full spectrum of our services—Login to access
                 exclusive features and personalized appointments. Elevate your
                 salon experience with a seamless blend of convenience and
                 customization.
               </p>
-
               <div className="mt-8 flex flex-wrap justify-center gap-4">
                 <Link
                   className="block w-full rounded bg-[#537f3c] px-12 py-3 text-sm font-medium text-white shadow hover:bg-none focus:outline-none focus:ring sm:w-auto"
@@ -325,9 +303,8 @@ const PaymentPage = () => {
                 >
                   Login now
                 </Link>
-
                 <Link
-                  className="block w-full rounded px-12 py-3 text-sm font-medium text-[#537f3c] shadow  focus:outline-none focus:ring  sm:w-auto"
+                  className="block w-full rounded px-12 py-3 text-sm font-medium text-[#537f3c] shadow focus:outline-none focus:ring sm:w-auto"
                   to="/"
                 >
                   Back to Home
@@ -336,6 +313,11 @@ const PaymentPage = () => {
             </div>
           </div>
         </section>
+      )}
+      {loading && (
+        <div className="fixed top-0 left-0 z-50 w-full h-full flex items-center justify-center bg-gray-800 bg-opacity-50">
+          <div className="text-white">Processing payment...</div>
+        </div>
       )}
     </>
   );
