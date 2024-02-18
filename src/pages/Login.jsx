@@ -22,7 +22,7 @@ const Login = () => {
       });
       
       if (res?.data?.success) {
-        toast.success("Login successful");
+        toast.success("Login successfull");
         setAuth({
           ...auth,
           user: res.data.user,

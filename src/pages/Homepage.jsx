@@ -133,18 +133,24 @@ const Homepage = () => {
         <div className="lg:w-1/2 w-full lg:pt-28 pt-12 flex flex-col gap-6">
           <h1 className="lg:text-5xl text-4xl font-semibold">
             Locks of Love, Styles of Grace: Your Journey to Radiant Beauty with{" "}
-            <span className=" text-green-500 underline">Nourish Nest</span> Home Care
-            Services.
+            <span className=" text-green-500 underline">Nourish Nest</span> Home
+            Care Services.
           </h1>
           <p className=" font-bold underline">
             We are providing our home services in Indore, Mhow, Pitampur, Rau
           </p>
+
           <p>
-            Indulge in the epitome of beauty at our women's salon. Our expert
-            team awaits to tailor a personalized experience just for you. From
-            chic hairstyles to rejuvenating skincare, discover a sanctuary of
-            glamour. Book your appointment now and elevate your beauty journey
-            with us!
+            Welcome to Nourish Nest - Your Beauty Haven! <br />
+            <span className=" font-bold">
+              Experience Luxury and Convenience with Our In-Home Beauty
+              Services!
+            </span>{" "}
+            Pamper Yourself with Customized Skincare Treatments, Expert Makeup
+            Services, and Luxurious Haircare - All in the Comfort of Your Own
+            Home! Whether You're Preparing for a Special Occasion or Just
+            Indulging in Self-Care, Let Nourish Nest Bring the Spa Experience to
+            You!
           </p>
           <div className="flex gap-6">
             <Link to="/gallery">
@@ -160,13 +166,13 @@ const Homepage = () => {
               <h1 className="text-2xl font-bold">150+</h1>
               <p>Connections</p>
             </div>{" "}
-            <div className="w-1/3 h-full flex flex-col border-x-2 border-[#537f3c] justify-center items-center ">
+            <div className="w-1/3 h-full flex flex-col px-4 border-x-2 border-[#537f3c] justify-center items-center ">
               <h1 className="text-2xl font-bold">180+</h1>
               <p>Customers</p>
             </div>{" "}
             <div className="w-1/3 h-full flex flex-col justify-center items-center ">
-              <h1 className="text-2xl font-bold">4.7+</h1>
-              <p>Reviews Ratings</p>
+              <h1 className="text-2xl font-bold text-center">4.7+</h1>
+              <p className="text-center">Ratings</p>
             </div>
           </div>
         </div>
@@ -537,63 +543,53 @@ const Homepage = () => {
             centered
             open={modal2Open}
             onOk={() => {
-              if (loginedUser) {
-                setModal2Open(false);
-                postReviews();
-              } else {
-                setModal2Open(false);
-              }
+              setModal2Open(false);
+              postReviews();
             }}
             onCancel={() => setModal2Open(false)}
             okButtonProps={{
               style: { background: "#537f3c", borderColor: "#537f3c" },
             }}
           >
-            {loginedUser ? (
-              <div>
-                <h1 className="text-center text-xl">Write Your Review Here</h1>
-                <div className="rounded-lg bg-white lg:col-span-3 lg:p-12">
-                  <form action="" className="space-y-4">
-                    <div>
-                      <label className="sr-only " htmlFor="name">
-                        Name
-                      </label>
-                      <input
-                        value={name}
-                        onChange={(e) => {
-                          setName(e.target.value);
-                        }}
-                        className="w-full rounded-lg border-gray-200 border-2 p-3 text-sm"
-                        placeholder="Name"
-                        type="text"
-                        id="name"
-                      />
-                    </div>
+            <div>
+              <h1 className="text-center text-xl">Write Your Review Here</h1>
+              <div className="rounded-lg bg-white lg:col-span-3 lg:p-12">
+                <form action="" className="space-y-4">
+                  <div>
+                    <label className="sr-only " htmlFor="name">
+                      Name
+                    </label>
+                    <input
+                      value={name}
+                      onChange={(e) => {
+                        setName(e.target.value);
+                      }}
+                      className="w-full rounded-lg border-gray-200 border-2 p-3 text-sm"
+                      placeholder="Name"
+                      type="text"
+                      id="name"
+                    />
+                  </div>
 
-                    <div>
-                      <label className="sr-only" htmlFor="message">
-                        Start Writing here
-                      </label>
+                  <div>
+                    <label className="sr-only" htmlFor="message">
+                      Start Writing here
+                    </label>
 
-                      <textarea
-                        value={message}
-                        onChange={(e) => {
-                          setMessage(e.target.value);
-                        }}
-                        className="w-full resize-none rounded-lg border-gray-200 border-2 p-3 text-sm"
-                        placeholder="Start writing here..."
-                        rows="8"
-                        id="message"
-                      ></textarea>
-                    </div>
-                  </form>
-                </div>
+                    <textarea
+                      value={message}
+                      onChange={(e) => {
+                        setMessage(e.target.value);
+                      }}
+                      className="w-full resize-none rounded-lg border-gray-200 border-2 p-3 text-sm"
+                      placeholder="Start writing here..."
+                      rows="8"
+                      id="message"
+                    ></textarea>
+                  </div>
+                </form>
               </div>
-            ) : (
-              <div>
-                <h1 className="font-semibold">Login to Post review</h1>
-              </div>
-            )}
+            </div>
           </Modal>
         </div>
       </div>
