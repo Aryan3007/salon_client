@@ -6,7 +6,6 @@ import { IoPersonSharp } from "react-icons/io5";
 import toast from "react-hot-toast";
 import { useAuth } from "../context/auth";
 
-
 const navigation = [
   { name: "Home", href: "/", current: false },
   { name: "Services", href: "/pricing", current: false },
@@ -31,10 +30,7 @@ export default function Navbarr() {
     });
     localStorage.removeItem("auth");
     toast.success("logout successfully");
-    
   };
-
-  
 
   return (
     <Disclosure as="nav" className="bg-gray-50 shadow-lg">
@@ -42,7 +38,6 @@ export default function Navbarr() {
         <>
           <div className="mx-auto  px-2 sm:px-6 lg:px-8">
             <div className="relative flex h-16 items-center lg:px-16 justify-between">
-
               <div className="absolute inset-y-0 left-0 flex items-center sm:hidden">
                 {/* Mobile menu button*/}
                 <Disclosure.Button className="relative inline-flex items-center justify-center rounded-md p-2 text-gray-900 hover:bg-gray-700 hover:text-white focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white">
@@ -56,7 +51,6 @@ export default function Navbarr() {
                 </Disclosure.Button>
               </div>
 
-
               <div className="hidden lg:flex">
                 <Link to="/">
                   <div className="flex flex-row gap-2 flex-shrink-0 items-center">
@@ -65,11 +59,12 @@ export default function Navbarr() {
                       src="./logo.png"
                       alt=""
                     />
-                    <h1 className="text-xl font-serif font-bold ">Nourish_nest</h1>
+                    <h1 className="text-xl font-serif font-bold ">
+                      Nourish_nest
+                    </h1>
                   </div>
                 </Link>
               </div>
-
 
               <div className="flex items-center  justify-center sm:items-stretch sm:justify-start">
                 <div className="hidden sm:ml-6 sm:block">
@@ -92,7 +87,7 @@ export default function Navbarr() {
                   </div>
                 </div>
               </div>
-              
+
               <div className="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
                 {/* Profile dropdown */}
                 <Menu as="div" className="relative ml-3">
@@ -115,19 +110,35 @@ export default function Navbarr() {
                     <Menu.Items className="absolute right-0 z-10 mt-2 w-48 origin-top-right rounded-md bg-white py-1 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
                       {auth.user ? (
                         <>
-                          <Menu.Item>
-                            {({ active }) => (
-                              <Link
-                                to="/appointment"
-                                className={classNames(
-                                  active ? "bg-gray-100" : "",
-                                  "block px-4 py-2 text-sm text-gray-700"
-                                )}
-                              >
-                                Your Account
-                              </Link>
-                            )}
-                          </Menu.Item>
+                          {auth.user.admin ? (
+                            <Menu.Item>
+                              {({ active }) => (
+                                <Link
+                                  to="/dashboard"
+                                  className={classNames(
+                                    active ? "bg-gray-100" : "",
+                                    "block px-4 py-2 text-sm text-gray-700"
+                                  )}
+                                >
+                                  Dashboard
+                                </Link>
+                              )}
+                            </Menu.Item>
+                          ) : (
+                            <Menu.Item>
+                              {({ active }) => (
+                                <Link
+                                  to="/appointment"
+                                  className={classNames(
+                                    active ? "bg-gray-100" : "",
+                                    "block px-4 py-2 text-sm text-gray-700"
+                                  )}
+                                >
+                                  Your Account
+                                </Link>
+                              )}
+                            </Menu.Item>
+                          )}
 
                           <Menu.Item>
                             {({ active }) => (
@@ -187,7 +198,7 @@ export default function Navbarr() {
             <div className="space-y-1 px-2 pb-3 pt-2">
               {navigation.map((item) => (
                 <Disclosure.Button
-                   key={item.name}
+                  key={item.name}
                   className={classNames(
                     item.current
                       ? "bg-gray-900 text-white"
@@ -196,11 +207,7 @@ export default function Navbarr() {
                   )}
                   aria-current={item.current ? "page" : undefined}
                 >
-                  <Link
-                
-                  to={item.href}>
-                  {item.name}
-                  </Link>
+                  <Link to={item.href}>{item.name}</Link>
                 </Disclosure.Button>
               ))}
             </div>

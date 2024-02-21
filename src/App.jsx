@@ -20,6 +20,7 @@ import ScrollToTop from "./components/ScrollToTop";
 import OTPinput from "./components/OTPinput";
 import PasswordChange from "./pages/PasswordChange";
 
+import Allservices from "./components/Dashboard";
 
 function App() {
   return (
@@ -44,6 +45,10 @@ function App() {
           <Route exact path="/pricing" element={<Pricing />} />
           <Route exact path="/payment/:id" element={<PaymentPage />} />
           <Route exact path="/appointment" element={<Appointment />} />
+
+          
+          <Route exact path="/dashboard" element={<Allservices />} />
+
           <Route
             exact
             path="/success/:razorpayPaymentId"

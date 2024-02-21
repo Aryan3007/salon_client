@@ -33,7 +33,6 @@ const OTPinput = () => {
   const checkCode = () => {
     if (OTP === otpsended) {
       setVerified(true);
-      
     } else {
       console.log("Wrong OTP");
     }

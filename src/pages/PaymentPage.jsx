@@ -1,10 +1,15 @@
+/* eslint-disable no-unused-vars */
 /* eslint-disable react/no-unescaped-entities */
 import axios from "axios";
 import { useEffect, useState } from "react";
 import toast from "react-hot-toast";
 import { Link, useParams } from "react-router-dom";
+import { useAuth } from "../context/auth";
 
 const PaymentPage = () => {
+  const [auth, setAuth] = useAuth();
+
+  
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [mobile, setMobile] = useState("");
@@ -103,9 +108,9 @@ const PaymentPage = () => {
 
                 // Handle success or failure based on the server's response
                 if (verificationResponse.data.success) {
-                  window.location.href = `http://localhost:5173/success/${razorpay_payment_id}`;
+                  window.location.href = `https://salon-server-jupe.onrender.com/success/${razorpay_payment_id}`;
                 } else {
-                  window.location.href = "http://localhost:5173/failed";
+                  window.location.href = "https://salon-server-jupe.onrender.com/failed";
                 }
               })
               .catch((error) => {
@@ -130,7 +135,7 @@ const PaymentPage = () => {
 
   return (
     <>
-      {loginedUser ? (
+      {auth.user ? (
         <div className="lg:p-24 p-4 h-full pt-24 flex lg:flex-row justify-center flex-col w-full">
           <div className="h-[700px] lg:flex w-96 hidden justify-center">
             <div className="max-w-screen-xl px-4 py-8 sm:px-6 sm:py-5">

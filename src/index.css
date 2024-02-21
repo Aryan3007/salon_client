@@ -12,6 +12,15 @@ body{
   margin: 0;
 }
 
+::-webkit-scrollbar {
+  display: none;
+}
+
+::-webkit-scrollbar-button {
+  display: none;
+}
+
+
 .glass{
   /* From https://css.glass */
 background: rgba(255, 255, 255, 0.2);
