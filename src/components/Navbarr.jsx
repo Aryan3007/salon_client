@@ -55,8 +55,8 @@ export default function Navbarr() {
                 <Link to="/">
                   <div className="flex flex-row gap-2 flex-shrink-0 items-center">
                     <img
-                      className="h-10 hidden lg:flex"
-                      src="./logo.png"
+                      className="h-10 rounded-full hidden lg:flex"
+                      src="./logo.jpg"
                       alt=""
                     />
                     <h1 className="text-xl font-serif font-bold ">

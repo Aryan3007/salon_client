@@ -1,36 +1,26 @@
 /* eslint-disable react/no-unescaped-entities */
-/* eslint-disable no-unused-vars */
 import { Link } from "react-router-dom";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import axios from "axios";
 
 const Gallery = () => {
-  const [photos, setPhotos] = useState([
-    "src/assets/gallery/g1.jpg",
-    "src/assets/gallery/g2.jpg",
-    "src/assets/gallery/g3.jpg",
-    "src/assets/gallery/g4.jpg",
-    "src/assets/gallery/g5.jpg",
-    "src/assets/gallery/g6.jpg",
-    "src/assets/gallery/g8.jpg",
-    "src/assets/gallery/g9.jpg",
-    "src/assets/gallery/g10.jpg",
-    "src/assets/gallery/g11.jpg",
-    "src/assets/gallery/g12.jpg",
-    "src/assets/gallery/g13.jpg",
-    "src/assets/gallery/g14.jpg",
-    "src/assets/gallery/g15.jpg",
-    "src/assets/gallery/g16.jpg",
-    "src/assets/gallery/g17.jpg",
-    "src/assets/gallery/g18.jpg",
-    "src/assets/gallery/g19.jpg",
-    "src/assets/gallery/g20.jpg",
-    "src/assets/gallery/g21.jpg",
-    "src/assets/gallery/g22.jpg",
-    "src/assets/gallery/g23.jpg",
-    "src/assets/gallery/g24.jpg",
-    "src/assets/gallery/g25.jpg",
+  const [images, setImages] = useState([]);
+  const [loading, setLoading] = useState(true);
 
-  ]);
+  const fetchImagesFromCloudinary = async () => {
+    try {
+      const response = await axios.get("https://salon-server-jupe.onrender.com/api/images");
+      setImages(response.data.resources);
+    } catch (error) {
+      console.error("Error fetching images from Cloudinary:", error);
+    } finally {
+      setLoading(false); // Set loading to false regardless of success or error
+    }
+  };
+
+  useEffect(() => {
+    fetchImagesFromCloudinary();
+  }, []);
 
   return (
     <>
@@ -64,18 +54,34 @@ const Gallery = () => {
             </div>
           </div>
           <div className="grid grid-cols-1 gap-8 mt-8 xl:mt-16 md:grid-cols-2 xl:grid-cols-4">
-            {photos.map((src, index) => (
-              <div
-                key={index}
-                className="flex overflow-hidden flex-col items-center"
-              >
-                <img
-                  className="h-[500px] bg-zinc-300 w-full"
-                  src={src}
-                  alt={`Photo ${index + 1}`}
-                />
+            {loading ? (
+              <>
+              
+              <div className="flex items-center justify-center w-full h-[500px]">
+                <p className="text-gray-500">Loading...</p>
               </div>
-            ))}
+              <div className="flex items-center justify-center w-full h-[500px]">
+                <p className="text-gray-500">Loading...</p>
+              </div>
+              <div className="flex items-center justify-center w-full h-[500px]">
+                <p className="text-gray-500">Loading...</p>
+              </div> <div className="flex items-center justify-center w-full h-[500px]">
+                <p className="text-gray-500">Loading...</p>
+              </div>
+            
+             
+              </>
+            ) : (
+              images.map((image, index) => (
+                <div key={index} className="flex overflow-hidden flex-col items-center">
+                  <img
+                    className="h-[500px] bg-zinc-300 w-full"
+                    src={image.secure_url}
+                    alt={`Photo ${index + 1}`}
+                  />
+                </div>
+              ))
+            )}
           </div>
         </div>
       </section>

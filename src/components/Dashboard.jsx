@@ -6,6 +6,7 @@ import Reviews from "../admin/Reviews";
 import UpdateService from "../admin/UpdateService";
 import { useAuth } from "../context/auth";
 import Pagenotfound from "../pages/Pagenotfound"
+import Images from "../admin/Images";
 
 
 const Dashboard = () => {
@@ -74,6 +75,16 @@ const Dashboard = () => {
               >
                 Delete Reviews
               </button>
+              <button
+                className={`h-12 px-5 py-2 -mb-px text-sm text-center ${
+                  activeButton === "Uplode Photos"
+                    ? "text-blue-600 bg-transparent border-b-2 border-blue-500"
+                    : "text-black bg-transparent border-gray-200"
+                } sm:text-base whitespace-nowrap cursor-base focus:outline-none`}
+                onClick={() => handleClick("Uplode Photos")}
+              >
+                Uplode Photos
+              </button>
             </div>
 
             <section className="mt-8 space-y-8 lg:mt-12">
@@ -82,6 +93,7 @@ const Dashboard = () => {
               {activeButton === "Delete Services" && <DeleteService />}
               {activeButton === "Update Services" && <UpdateService />}
               {activeButton === "Delete Reviews" && <Reviews />}
+              {activeButton === "Uplode Photos" && <Images />}
             </section>
           </div>
         </section>
