@@ -3,8 +3,8 @@
 /* eslint-disable react/no-unescaped-entities */
 import { MdArrowOutward } from "react-icons/md";
 import KeenSlider from "keen-slider";
-import { useEffect, useRef, useState } from "react";
 import "keen-slider/keen-slider.min.css";
+import { useEffect, useRef, useState } from "react";
 import { Modal } from "antd";
 import { Link } from "react-router-dom";
 import axios from "axios";

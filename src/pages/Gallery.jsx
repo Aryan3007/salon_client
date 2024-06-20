@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 /* eslint-disable react/no-unescaped-entities */
 import { Link } from "react-router-dom";
 import { useEffect, useState } from "react";
@@ -21,6 +22,18 @@ const Gallery = () => {
   useEffect(() => {
     fetchImagesFromCloudinary();
   }, []);
+
+  const [videos, setVideos] = useState([
+    "/src/assets/others/makeupvid1.mp4",
+    "/src/assets/others/makeupvid3.mp4",
+    "/src/assets/others/makeupvid2.mp4",
+    "/src/assets/others/makeupvid5.mp4",
+    "/src/assets/others/makeupvid6.mp4",
+    "/src/assets/others/makeupvid9.mp4",
+  
+
+
+  ]);
 
   return (
     <>
@@ -48,11 +61,24 @@ const Gallery = () => {
               </Link>
               <Link to="/other-photos">
                 <button className="px-4 py-2 text-sm font-medium text-black capitalize transition-colors duration-300 md:py-3 dark:text-blue-400 dark:hover:text-white focus:outline-none hover:bg-[#537f3c] hover:text-white rounded-xl md:px-12">
-                  Others
+                  Skin
                 </button>
               </Link>
             </div>
           </div>
+          <div className="grid grid-cols-1 gap-8 mt-8 xl:mt-16 md:grid-cols-2 xl:grid-cols-4">
+          {videos.map((src, index) => (
+            <div
+              key={index}
+              className="flex overflow-hidden flex-col items-center"
+            >
+              <video className="w-full" src={src} controls>
+                Your browser does not support the video tag.
+              </video>
+            </div>
+          ))}
+        </div>
+
           <div className="grid grid-cols-1 gap-8 mt-8 xl:mt-16 md:grid-cols-2 xl:grid-cols-4">
             {loading ? (
               <>

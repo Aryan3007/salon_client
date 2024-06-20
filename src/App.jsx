@@ -21,6 +21,7 @@ import OTPinput from "./components/OTPinput";
 import PasswordChange from "./pages/PasswordChange";
 
 import Allservices from "./components/Dashboard";
+import Reviewspage from "./pages/Reviewspage";
 
 function App() {
   return (
@@ -34,6 +35,7 @@ function App() {
         <Routes>
           <Route exact path="/" element={<Homepage />} />
           <Route exact path="/contact" element={<Contact />} />
+          <Route exact path="/review" element={<Reviewspage />} />
           <Route exact path="/about" element={<About />} />
           <Route exact path="/gallery" element={<Gallery />} />
           <Route exact path="/gallery-hairs" element={<Hairs />} />
