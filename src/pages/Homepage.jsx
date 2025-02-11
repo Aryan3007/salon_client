@@ -278,22 +278,7 @@ const Homepage = () => {
         </div>
       </section>
 
-      {/* <div className="h-full px-12 lg:flex-row justify-center items-center flex-col flex w-full">
-        <div className="h-full min-w-96 lg:border-r-[#537f3c] border-2 w-1/2 flex justify-center flex-col gap-4 items-center ">
-          <h1 className="uppercase text-xl ">Welcome</h1>
-          <h1 className="lg:text-6xl text-4xl font-serif text-center font-semibold underline my-4">
-            Opening Hours
-          </h1>
-          <Link to="/pricing">
-          <button className="w-44 btn2">Book Now</button>
-          </Link>
-        </div>
-        <div className=" p-4 flex min-w-96 gap-8 justify-center text-center items-center flex-col lg:w-1/2 w-full h-full">
-          <h1 className="lg:text-2xl text-xl">MONDAY to FRIDAY 08:00 - 20:00</h1>
-          <h1 className="lg:text-2xl text-xl">SATURDAY 10:00 - 18:00</h1>
-          <h1 className="lg:text-2xl text-xl">SUNDAY 10:00 - 18:00</h1>
-        </div>
-      </div> */}
+  
 
       <div className="h-full lg:px-36 flex flex-col lg:py-12 w-full my-12">
         <h1 className="text-xl text-center">- Photo Gallery</h1>
