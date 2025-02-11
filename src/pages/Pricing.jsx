@@ -18,11 +18,13 @@ const Pricing = () => {
   const getAllServices = async () => {
     try {
       const res = await axios.get("https://salon-server-jupe.onrender.com/services/getservices");
-      setServices(res.data.allServices);
+      const sortedServices = res.data.allServices.sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt));
+      setServices(sortedServices);
     } catch (error) {
       console.log(error);
     }
   };
+  
   const selectedServices = async (id) => {
     // console.log(id);
     try {

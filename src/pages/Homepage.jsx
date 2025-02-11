@@ -128,8 +128,16 @@ const Homepage = () => {
           </button>
         </div>
       </a>
-
-      <div className="h-full flex lg:flex-row flex-col lg:p-24 pt-16 p-4  gap-3 w-screen">
+      <div className="bg-green-600 px-4 mt-16 py-3 text-white">
+        <p className="text-center text-base font-medium">
+          New Hydra Facial is now availabe for home Service
+          <Link to={"/pricing"} className="inline-block px-2 underline">
+            {" "}
+            Check out now
+          </Link>
+        </p>
+      </div>
+      <div className="h-full flex lg:flex-row flex-col lg:p-24 lg:pt-4 p-4  gap-3 w-screen">
         <div className="lg:w-1/2 w-full lg:pt-28 pt-12 flex flex-col gap-6">
           <h1 className="lg:text-5xl text-4xl font-semibold">
             Locks of Love, Styles of Grace: Your Journey to Radiant Beauty with{" "}

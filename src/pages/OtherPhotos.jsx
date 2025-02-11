@@ -14,13 +14,20 @@ const OtherPhotos = () => {
     "/src/assets/others/o8.jpg",
     "/src/assets/others/o9.jpg",
     "/src/assets/others/o10.jpg",
-    "/src/assets/others/012.jpg",
-    "/src/assets/others/011.jpg",
+    "/src/assets/others/o12.jpg",
+    "/src/assets/others/o11.jpg",
   ]);
 
   const [videos, setVideos] = useState([
-    "/src/assets/others/vid1.mp4",
+    "/src/assets/others/vid9.mp4",
+    "/src/assets/others/vid8.mp4",
+    "/src/assets/others/vid7.mp4",
+    "/src/assets/others/vid6.mp4",
+    "/src/assets/others/vid5.mp4",
+    "/src/assets/others/vid4.mp4",
+    "/src/assets/others/vid3.mp4",
     "/src/assets/others/vid2.mp4",
+    "/src/assets/others/vid1.mp4",
   ]);
 
   return (

@@ -24,6 +24,8 @@ const Gallery = () => {
   }, []);
 
   const [videos, setVideos] = useState([
+    "/src/assets/others/makeupvid11.mp4",
+    "/src/assets/others/makeupvid10.mp4",
     "/src/assets/others/makeupvid1.mp4",
     "/src/assets/others/makeupvid3.mp4",
     "/src/assets/others/makeupvid2.mp4",

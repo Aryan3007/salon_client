@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 
 const Hairs = () => {
   const [photos, setPhotos] = useState([
+    "src/assets/hairs/h0.jpg",
     "src/assets/hairs/h1.jpg",
     "src/assets/hairs/h2.jpg",
     "src/assets/hairs/h3.jpg",
@@ -30,6 +31,12 @@ const Hairs = () => {
   ]);
 
   const [videos, setVideos] = useState([
+    "src/assets/others/hairvid9.mp4",
+    "src/assets/others/hairvid8.mp4",
+    "src/assets/others/hairvid7.mp4",
+    "src/assets/others/hairvid6.mp4",
+    "src/assets/others/hairvid5.mp4",
+    "src/assets/others/hairvid4.mp4",
     "src/assets/others/hairvid2.mp4",
     "src/assets/others/hairvid3.mp4",
     "src/assets/others/hairvideo1.mp4",
