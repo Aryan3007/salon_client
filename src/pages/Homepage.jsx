@@ -499,7 +499,7 @@ const Homepage = () => {
               <img className="h-full w-full" src="src/assets/t2.jpg" alt="" />
             </div>
             <div className="h-32 w-32 bg-zinc-300 flex justify-center items-center overflow-hidden rounded-full">
-              <img className="h-full w-full" src="src/assets/t1.jpg" alt="" />
+              <img className="h-full w-full" src="/t1.jpg" alt="" />
             </div>
             <div className="h-20 overflow-hidden w-20 bg-zinc-300 rounded-full">
               <img className="h-full w-full" src="src/assets/t4.jpg" alt="" />
