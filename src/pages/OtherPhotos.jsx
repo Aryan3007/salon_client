@@ -5,29 +5,29 @@ import { Link } from "react-router-dom";
 
 const OtherPhotos = () => {
   const [photos, setPhotos] = useState([
-    "/src/assets/others/o2.jpg",
-    "/src/assets/others/o3.jpg",
-    "/src/assets/others/o4.jpg",
-    "/src/assets/others/o5.jpg",
-    "/src/assets/others/o6.jpg",
-    "/src/assets/others/o7.jpg",
-    "/src/assets/others/o8.jpg",
-    "/src/assets/others/o9.jpg",
-    "/src/assets/others/o10.jpg",
-    "/src/assets/others/o12.jpg",
-    "/src/assets/others/o11.jpg",
+    "/o2.jpg",
+    "/o3.jpg",
+    "/o4.jpg",
+    "/o5.jpg",
+    "/o6.jpg",
+    "/o7.jpg",
+    "/o8.jpg",
+    "/o9.jpg",
+    "/o10.jpg",
+    "/o12.jpg",
+    "/o11.jpg",
   ]);
 
   const [videos, setVideos] = useState([
-    "/src/assets/others/vid9.mp4",
-    "/src/assets/others/vid8.mp4",
-    "/src/assets/others/vid7.mp4",
-    "/src/assets/others/vid6.mp4",
-    "/src/assets/others/vid5.mp4",
-    "/src/assets/others/vid4.mp4",
-    "/src/assets/others/vid3.mp4",
-    "/src/assets/others/vid2.mp4",
-    "/src/assets/others/vid1.mp4",
+    "/vid9.mp4",
+    "/vid8.mp4",
+    "/vid7.mp4",
+    "/vid6.mp4",
+    "/vid5.mp4",
+    "/vid4.mp4",
+    "/vid3.mp4",
+    "/vid2.mp4",
+    "/vid1.mp4",
   ]);
 
   return (

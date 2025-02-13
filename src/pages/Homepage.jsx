@@ -229,31 +229,7 @@ const Homepage = () => {
         </div>
       </div>
 
-      {/* <div className="h-full flex gap-6 lg:flex-row flex-col justify-center items-center lg:p-12 w-full">
-        <div className="h-2/3 p-4 lg:w-1/2 w-full">
-          <img
-            src="https://images.unsplash.com/photo-1505159401534-f62f81037389?q=80&w=2071&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-            alt=""
-          />
-        </div>
-        <div className="h-full min-w-80 lg:p-12 p-4 flex flex-col justify-center items-center gap-6 lg:w-1/2 w-full">
-          <div className="h-full w-full lg:p-12  flex justify-center gap-6 items-center flex-col">
-            <h1 className="text-3xl">RITU...</h1>
-            <h1 className="text-4xl font-serif font-semibold underline">
-              Makeup Artist
-            </h1>
-            <p className="text-center px-12">
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Hic modi
-              in magni perferendis qui, illum doloribus blanditiis temporibus ut
-              laudantium et voluptatem laboriosam doloremque deleniti maxime sit
-              earum at explicabo!
-            </p>
-            <Link to="/about">
-              <button className="w-44 btn2">Explore</button>
-            </Link>
-          </div>
-        </div>
-      </div> */}
+      
       <section className=" bg-gray-100 lg:my-12 lg:py-12 lg:flex lg:justify-center">
         <div className="overflow-hidden  dark:bg-gray-900 lg:mx-8 lg:flex lg:max-w-6xl lg:w-full">
           <div className="lg:w-1/2">
@@ -493,19 +469,19 @@ const Homepage = () => {
         <div className=" p-12 flex justify-center items-center flex-col gap-1 lg:w-1/2 w-full h-full">
           <div className="flex justify-center items-center flex-row gap-2">
             <div className="h-16 overflow-hidden lg:flex md:flex hidden w-16 bg-zinc-300 rounded-full">
-              <img className="h-full w-full" src="src/assets/t3.jpg" alt="" />
+              <img className="h-full w-full" src="/t3.jpg" alt="" />
             </div>
             <div className="h-20 overflow-hidden w-20 bg-zinc-300 rounded-full">
-              <img className="h-full w-full" src="src/assets/t2.jpg" alt="" />
+              <img className="h-full w-full" src="/t2.jpg" alt="" />
             </div>
             <div className="h-32 w-32 bg-zinc-300 flex justify-center items-center overflow-hidden rounded-full">
               <img className="h-full w-full" src="/t1.jpg" alt="" />
             </div>
             <div className="h-20 overflow-hidden w-20 bg-zinc-300 rounded-full">
-              <img className="h-full w-full" src="src/assets/t4.jpg" alt="" />
+              <img className="h-full w-full" src="/t4.jpg" alt="" />
             </div>
             <div className="h-16 overflow-hidden lg:flex md:flex hidden w-16 bg-zinc-300 rounded-full">
-              <img className="h-full w-full" src="src/assets/t5.jpg" alt="" />
+              <img className="h-full w-full" src="/t5.jpg" alt="" />
             </div>
           </div>
 

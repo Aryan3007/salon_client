@@ -24,14 +24,14 @@ const Gallery = () => {
   }, []);
 
   const [videos, setVideos] = useState([
-    "/src/assets/others/makeupvid11.mp4",
-    "/src/assets/others/makeupvid10.mp4",
-    "/src/assets/others/makeupvid1.mp4",
-    "/src/assets/others/makeupvid3.mp4",
-    "/src/assets/others/makeupvid2.mp4",
-    "/src/assets/others/makeupvid5.mp4",
-    "/src/assets/others/makeupvid6.mp4",
-    "/src/assets/others/makeupvid9.mp4",
+    "/makeupvid11.mp4",
+    "/makeupvid10.mp4",
+    "/makeupvid1.mp4",
+    "/makeupvid3.mp4",
+    "/makeupvid2.mp4",
+    "/makeupvid5.mp4",
+    "/makeupvid6.mp4",
+    "/makeupvid9.mp4",
   
 
 

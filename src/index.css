@@ -31,24 +31,24 @@ backdrop-filter: blur(5px);
 border: 1px solid rgba(255, 255, 255, 0.3);
 }
 .ritucover{
-  background-image: url(assets/ritu.jpg);
+  background-image: url(/Ritu.jpg);
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
 }.home1{
-  background-image: url(assets/home1.jpg);
+  background-image: url(/home1.jpg);
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
 }
 .home2{
-  background-image: url(assets/home3.jpg);
+  background-image: url(/home3.jpg);
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
 }
 .home3{
-  background-image: url(assets/home2.jpg);
+  background-image: url(/home2.jpg);
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
