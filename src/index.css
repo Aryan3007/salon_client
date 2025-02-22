@@ -225,28 +225,28 @@ border: 1px solid rgba(255, 255, 255, 0.3);
  }
 
  .couples {
-  background-image: url(assets/othersimg.jpg);
+  background-image: url(/othersimg.jpg);
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
 }
 
 .mens {
-  background-image: url(assets/homehair.jpg);
+  background-image: url(/homehair.jpg);
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
 }
 
 .womens {
-  background-image: url(assets/g11.jpg);
+  background-image: url(/g11.jpg);
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
 }
 
 .kids {
-  background-image: url(assets/bridal.jpg);
+  background-image: url(/bridal.jpg);
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
