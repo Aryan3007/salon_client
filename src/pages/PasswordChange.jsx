@@ -34,7 +34,7 @@ const PasswordChange = (props) => {
     setLoading(true);
     
     try {
-      const response = await axios.post("https://salon-server-jupe.onrender.com/auth/setnewPassword", {
+      const response = await axios.post("https://salon-server-gilt.vercel.app/auth/setnewPassword", {
         newPassword,
         email
       });

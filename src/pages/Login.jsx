@@ -16,7 +16,7 @@ const Login = () => {
     setLoading(true); // Set loading state to true when login starts
   
     try {
-      const res = await axios.post("https://salon-server-jupe.onrender.com/auth/login", {
+      const res = await axios.post("https://salon-server-gilt.vercel.app/auth/login", {
         email,
         password,
       });

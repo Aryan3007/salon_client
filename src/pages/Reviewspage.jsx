@@ -9,7 +9,7 @@ const Reviewspage = () => {
   const getAllReviews = async () => {
     try {
       const res = await axios.get(
-        "https://salon-server-jupe.onrender.com/review/getreview"
+        "https://salon-server-gilt.vercel.app/review/getreview"
       );
       // Assuming each review has a createdAt property
       const sortedReviews = res.data.reviews.sort(

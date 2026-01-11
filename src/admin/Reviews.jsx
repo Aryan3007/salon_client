@@ -6,7 +6,7 @@ const Reviews = () => {
 
   const getAllReviews = async () => {
     try {
-      const res = await axios.get("https://salon-server-jupe.onrender.com/review/getreview");
+      const res = await axios.get("https://salon-server-gilt.vercel.app/review/getreview");
       setReviews(res.data.reviews);
     } catch (error) {
       console.log(error);
@@ -24,7 +24,7 @@ const Reviews = () => {
     if (!shouldDelete) return;
 
     try {
-      await axios.delete("https://salon-server-jupe.onrender.com/review/deletereview", {
+      await axios.delete("https://salon-server-gilt.vercel.app/review/deletereview", {
         data: { id },
       });
       setReviews(reviews.filter((review) => review._id !== id));

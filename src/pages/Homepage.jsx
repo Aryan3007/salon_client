@@ -74,7 +74,7 @@ const Homepage = () => {
   const getAllReviews = async () => {
     try {
       const res = await axios.get(
-        "https://salon-server-jupe.onrender.com/review/getreview"
+        "https://salon-server-gilt.vercel.app/review/getreview"
       );
       serReviews(res.data.reviews);
       setUpdatereview(false);
@@ -92,7 +92,7 @@ const Homepage = () => {
       }
 
       const res = await axios.post(
-        "https://salon-server-jupe.onrender.com/review/postreview",
+        "https://salon-server-gilt.vercel.app/review/postreview",
         {
           message,
           name,

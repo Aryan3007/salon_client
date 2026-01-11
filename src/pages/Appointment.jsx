@@ -13,7 +13,7 @@ const Appointment = () => {
   const getAppointments = async () => {
     try {
       const response = await axios.get(
-        "https://salon-server-jupe.onrender.com/status/allappointmnet",
+        "https://salon-server-gilt.vercel.app/status/allappointmnet",
         {
           params: {
             userId: loginedUser._id,

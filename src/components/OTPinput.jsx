@@ -14,7 +14,7 @@ const OTPinput = () => {
 
   const forgetpass = async () => {
     try {
-      const res = await axios.post("https://salon-server-jupe.onrender.com/auth/forgetpass", {
+      const res = await axios.post("https://salon-server-gilt.vercel.app/auth/forgetpass", {
         email,
       });
       if (res.data && res.data.otp) {

@@ -10,7 +10,7 @@ const Gallery = () => {
 
   const fetchImagesFromCloudinary = async () => {
     try {
-      const response = await axios.get("https://salon-server-jupe.onrender.com/api/images");
+      const response = await axios.get("https://salon-server-gilt.vercel.app/api/images");
       setImages(response.data.resources);
     } catch (error) {
       console.error("Error fetching images from Cloudinary:", error);

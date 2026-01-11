@@ -18,7 +18,7 @@ const Register = () => {
 
     try {
       const res = await axios.post(
-        "https://salon-server-jupe.onrender.com/auth/register",
+        "https://salon-server-gilt.vercel.app/auth/register",
         {
           firstname,
           lastname,

@@ -17,7 +17,7 @@ const Pricing = () => {
   const naviagte=useNavigate()
   const getAllServices = async () => {
     try {
-      const res = await axios.get("https://salon-server-jupe.onrender.com/services/getservices");
+      const res = await axios.get("https://salon-server-gilt.vercel.app/services/getservices");
       const sortedServices = res.data.allServices.sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt));
       setServices(sortedServices);
     } catch (error) {
@@ -29,7 +29,7 @@ const Pricing = () => {
     // console.log(id);
     try {
       const response = await axios.get(
-        `https://salon-server-jupe.onrender.com/services/selectedService/${id}`,
+        `https://salon-server-gilt.vercel.app/services/selectedService/${id}`,
        
       );
       if (response.data.success) {

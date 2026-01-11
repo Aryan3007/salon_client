@@ -13,7 +13,7 @@ const UpdateService = () => {
 
   const getAllServices = async () => {
     try {
-      const res = await axios.get("https://salon-server-jupe.onrender.com/services/getservices");
+      const res = await axios.get("https://salon-server-gilt.vercel.app/services/getservices");
       setServices(res.data.allServices);
     } catch (error) {
       console.log(error);
@@ -33,7 +33,7 @@ const UpdateService = () => {
         included: included,
       };
       const res = await axios.put(
-        `https://salon-server-jupe.onrender.com/services/updateservice/${selectedServiceId}`,
+        `https://salon-server-gilt.vercel.app/services/updateservice/${selectedServiceId}`,
         updatedService
       );
       setServices(

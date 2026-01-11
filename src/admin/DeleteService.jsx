@@ -9,7 +9,7 @@ const DeleteService = () => {
   const getAllServices = async () => {
     try {
       const res = await axios.get(
-        "https://salon-server-jupe.onrender.com/services/getservices"
+        "https://salon-server-gilt.vercel.app/services/getservices"
       );
       setServices(res.data.allServices);
     } catch (error) {
@@ -31,7 +31,7 @@ const DeleteService = () => {
     try {
       // Send the ID in the request body
       const res = await axios.delete(
-        "https://salon-server-jupe.onrender.com/services/deleteservices",
+        "https://salon-server-gilt.vercel.app/services/deleteservices",
         { data: { id } }
       );
       setServices(services.filter((service) => service._id !== id));

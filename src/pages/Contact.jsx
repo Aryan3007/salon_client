@@ -100,7 +100,8 @@ const Contact = () => {
                 Mon-Fri from 8am to 5pm.
               </p>
               <p className="mt-2 text-[#537f3c] dark:text-blue-400">
-                +91 8234013979
+                +91 8770582236 <br />
+                +91 8461094902
               </p>
             </div>
           </div>

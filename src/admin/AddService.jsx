@@ -16,7 +16,7 @@ const AddService = () => {
     }
     try {
       const res = await axios.post(
-        "https://salon-server-jupe.onrender.com/services/postservices",
+        "https://salon-server-gilt.vercel.app/services/postservices",
         { name, price, included }
       );
       toast.success("Service added successfully");

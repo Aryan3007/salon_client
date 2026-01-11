@@ -31,7 +31,7 @@ const PaymentPage = () => {
   const getService = async (id) => {
     try {
       const res = await axios.get(
-        `https://salon-server-jupe.onrender.com/services/selectedService/${id}`
+        `https://salon-server-gilt.vercel.app/services/selectedService/${id}`
       );
       setService(res.data.service.price);
       setSelected(res.data.service);
@@ -58,7 +58,7 @@ const PaymentPage = () => {
         return;
       } else {
         const order = await axios.post(
-          "https://salon-server-jupe.onrender.com/payment/checkout",
+          "https://salon-server-gilt.vercel.app/payment/checkout",
           {
             name: name,
             email: email,
@@ -98,7 +98,7 @@ const PaymentPage = () => {
             // Now you have the payment_id, order_id, and signature
             // Send these values to your server for verification
             axios
-              .post("https://salon-server-jupe.onrender.com/payment/payment-verification", {
+              .post("https://salon-server-gilt.vercel.app/payment/payment-verification", {
                 razorpay_payment_id,
                 razorpay_order_id,
                 razorpay_signature,
@@ -108,9 +108,9 @@ const PaymentPage = () => {
 
                 // Handle success or failure based on the server's response
                 if (verificationResponse.data.success) {
-                  window.location.href = `https://salon-server-jupe.onrender.com/success/${razorpay_payment_id}`;
+                  window.location.href = `https://salon-server-gilt.vercel.app/success/${razorpay_payment_id}`;
                 } else {
-                  window.location.href = "https://salon-server-jupe.onrender.com/failed";
+                  window.location.href = "https://salon-server-gilt.vercel.app/failed";
                 }
               })
               .catch((error) => {
@@ -119,7 +119,7 @@ const PaymentPage = () => {
               });
           },
 
-          callback_url: "https://salon-server-jupe.onrender.com/payment/payment-verification",
+          callback_url: "https://salon-server-gilt.vercel.app/payment/payment-verification",
         };
 
 
